@@ -109,7 +109,7 @@ class SignUp extends StatelessWidget {
             ButtonWidget(
                 onPressed: () async {
                   Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => HomePage()));
+                      MaterialPageRoute(builder: (context) => HomeScreen()));
                 },
                 color: blueColor,
                 text: 'SIGN IN'),

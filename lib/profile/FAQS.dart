@@ -32,7 +32,7 @@ class FAQS extends StatelessWidget {
               height: 20,
             ),
             ListView.builder(
-                physics: NeverScrollableScrollPhysics(),
+                physics: const NeverScrollableScrollPhysics(),
                 shrinkWrap: true,
                 itemCount: 3,
                 itemBuilder: (context, index) {
@@ -53,7 +53,7 @@ class FAQS extends StatelessWidget {
                               Row(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  Expanded(
+                                  const Expanded(
                                     child: Text(
                                         'Q1:Can I Find The Right Direction Faster?',
                                         style: TextStyle(
@@ -61,7 +61,7 @@ class FAQS extends StatelessWidget {
                                             fontSize: 18,
                                             fontWeight: FontWeight.bold)),
                                   ),
-                                  SizedBox(
+                                  const SizedBox(
                                     width: 5,
                                   ),
                                   Container(
@@ -80,7 +80,7 @@ class FAQS extends StatelessWidget {
                               HorizontalSizeBox(height: 20),
                               Row(
                                 children: [
-                                  Expanded(
+                                  const Expanded(
                                       child: Text(
                                           "visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available."))
                                 ],
@@ -96,22 +96,22 @@ class FAQS extends StatelessWidget {
             Container(
               height: 100,
               width: 320,
-              color: Color(0xFFE9F4F9),
+              color: const Color(0xFFE9F4F9),
               child: Column(
                 children: [
                   ListTile(
-                    title: Text('HAVE A PROBLEM?',
+                    title: const Text('HAVE A PROBLEM?',
                         style: TextStyle(
                             color: Colors.black,
                             fontWeight: FontWeight.bold,
                             fontSize: 18)),
-                    subtitle: Text('We provide you the help'),
+                    subtitle: const Text('We provide you the help'),
                     trailing: Container(
                       width: 90,
                       height: 40,
                       decoration: BoxDecoration(
                           border: Border.all(color: Colors.black)),
-                      child: Center(
+                      child: const Center(
                         child: Text('GET HELP',
                             style: TextStyle(color: Colors.black)),
                       ),

@@ -1,6 +1,9 @@
 import 'package:balsam/AppUtils/ColorConstants.dart';
 import 'package:balsam/profile/FAQS.dart';
+import 'package:balsam/profile/Help_Centre.dart';
+import 'package:balsam/profile/Myappointment.dart';
 import 'package:balsam/profile/edit_profile.dart';
+import 'package:balsam/profile/notifications.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import '../CommonWidgets/HorizontalSizeBox.dart';
@@ -90,14 +93,20 @@ class Profile extends StatelessWidget {
               ),
               height: 60,
               width: 400,
-              child: const ListTile(
+              child: ListTile(
                 title: Text('My Appointment',
                     style: TextStyle(
                         fontWeight: FontWeight.bold,
                         fontSize: 15,
                         color: Colors.black)),
-                trailing:
-                    Icon(Icons.arrow_forward_ios_outlined, color: Colors.black),
+                trailing: InkWell(
+                    onTap: () => Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => Myappointment()),
+                        ),
+                    child: Icon(Icons.arrow_forward_ios_outlined,
+                        color: Colors.black)),
               ),
             ),
             HorizontalSizeBox(
@@ -205,14 +214,19 @@ class Profile extends StatelessWidget {
               ),
               height: 60,
               width: 400,
-              child: const ListTile(
+              child: ListTile(
                 title: Text('Help Center',
                     style: TextStyle(
                         fontWeight: FontWeight.bold,
                         fontSize: 15,
                         color: Colors.black)),
-                trailing:
-                    Icon(Icons.arrow_forward_ios_outlined, color: Colors.black),
+                trailing: InkWell(
+                    onTap: () => Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => HelpCentre()),
+                        ),
+                    child: Icon(Icons.arrow_forward_ios_outlined,
+                        color: Colors.black)),
               ),
             ),
             HorizontalSizeBox(
@@ -225,12 +239,18 @@ class Profile extends StatelessWidget {
               ),
               height: 60,
               width: 400,
-              child: const ListTile(
-                title: Text('Logout',
-                    style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 15,
-                        color: Colors.black)),
+              child: ListTile(
+                title: InkWell(
+                  // onTap: () => Navigator.push(
+                  //   context,
+                  //   MaterialPageRoute(builder: (context) => notify()),
+                  // ),
+                  child: Text('Logout',
+                      style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 15,
+                          color: Colors.black)),
+                ),
                 trailing:
                     Icon(Icons.arrow_forward_ios_outlined, color: Colors.black),
               ),
