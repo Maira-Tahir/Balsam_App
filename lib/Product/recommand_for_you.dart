@@ -1,10 +1,21 @@
 import 'package:balsam/AppUtils/ColorConstants.dart';
 import 'package:balsam/CommonWidgets/HorizontalSizeBox.dart';
+import 'package:balsam/Doctor/doctorspage.dart';
+import 'package:balsam/HomePage/HomeScreen.dart';
+import 'package:balsam/Product/Product_Detail.dart';
+import 'package:balsam/cart/cart_screen.dart';
+import 'package:balsam/profile/Myappointment.dart';
+import 'package:balsam/profile/profile_screen.dart';
+import 'package:bottom_navy_bar/bottom_navy_bar.dart';
 import 'package:flutter/material.dart';
 
-class ProductService extends StatelessWidget {
-  ProductService({Key? key}) : super(key: key);
+class Recommanded extends StatefulWidget {
+  @override
+  State<Recommanded> createState() => _RecommandedState();
+}
 
+class _RecommandedState extends State<Recommanded> {
+  int _currentIndex = 0;
   @override
   Widget build(BuildContext context) {
     final itemHeight = 300;
@@ -20,11 +31,96 @@ class ProductService extends StatelessWidget {
           title: const Text('Recommanded of you',
               style: TextStyle(color: Colors.black)),
           elevation: 0.0,
-          actions: const [
-            Icon(
-              Icons.shopping_cart,
-              color: Colors.black,
+          actions: [
+            InkWell(
+              onTap: () => Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => cartscreen()),
+              ),
+              child: Icon(
+                Icons.shopping_cart,
+                color: Colors.black,
+              ),
             )
+          ],
+        ),
+        bottomNavigationBar: BottomNavyBar(
+          selectedIndex: _currentIndex,
+          showElevation: true,
+          itemCornerRadius: 24,
+          curve: Curves.easeIn,
+          onItemSelected: (index) => setState(() => _currentIndex = index),
+          items: <BottomNavyBarItem>[
+            BottomNavyBarItem(
+              icon: InkWell(
+                onTap: () => Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => HomeScreen()),
+                ),
+                child: Icon(
+                  Icons.home_outlined,
+                  color: Colors.grey,
+                ),
+              ),
+              title: const Text(
+                'Home',
+                style: TextStyle(color: Colors.black54),
+              ),
+              textAlign: TextAlign.center,
+            ),
+            BottomNavyBarItem(
+              icon: InkWell(
+                onTap: () => Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => Dr_page()),
+                ),
+                child: Icon(
+                  Icons.business_center_outlined,
+                  color: Colors.grey,
+                ),
+              ),
+              title: const Text(
+                'Doctors',
+                style: TextStyle(color: Colors.black54),
+              ),
+              textAlign: TextAlign.center,
+            ),
+            BottomNavyBarItem(
+              icon: InkWell(
+                onTap: () => Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => Myappointment()),
+                ),
+                child: Icon(
+                  Icons.calendar_month_outlined,
+                  color: Colors.grey,
+                ),
+              ),
+              title: const Text(
+                'Calendar ',
+                style: TextStyle(
+                  color: Colors.black54,
+                ),
+              ),
+              textAlign: TextAlign.center,
+            ),
+            BottomNavyBarItem(
+              icon: InkWell(
+                onTap: () => Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => Profile()),
+                ),
+                child: Icon(
+                  Icons.grid_view_outlined,
+                  color: Colors.grey,
+                ),
+              ),
+              title: const Text(
+                'Profile',
+                style: TextStyle(color: Colors.black54),
+              ),
+              textAlign: TextAlign.center,
+            ),
           ],
         ),
         body: SingleChildScrollView(
@@ -41,75 +137,81 @@ class ProductService extends StatelessWidget {
               ),
               physics: const NeverScrollableScrollPhysics(),
               itemBuilder: (context, index) {
-                return Container(
-                  padding: const EdgeInsets.all(10),
-                  margin: const EdgeInsets.all(5),
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10),
-                    color: Colors.white,
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.grey.withOpacity(0.1),
-                        spreadRadius: 5,
-                        blurRadius: 7,
-                        offset: Offset(0, 0), // changes position of shadow
-                      ),
-                    ],
+                return InkWell(
+                  onTap: () => Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => ProductDetail()),
                   ),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Align(
-                        alignment: Alignment.centerRight,
-                        child: Icon(
-                          Icons.favorite,
-                          color: Colors.grey,
+                  child: Container(
+                    padding: const EdgeInsets.all(10),
+                    margin: const EdgeInsets.all(5),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                      color: Colors.white,
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.grey.withOpacity(0.1),
+                          spreadRadius: 5,
+                          blurRadius: 7,
+                          offset: Offset(0, 0), // changes position of shadow
                         ),
-                      ),
-                      HorizontalSizeBox(height: 5),
-                      Container(
-                        width: itemWidth,
-                        height: 130,
-                        decoration: BoxDecoration(
-                          color: Colors.grey.withAlpha(50),
-                          borderRadius: BorderRadius.circular(10),
+                      ],
+                    ),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Align(
+                          alignment: Alignment.centerRight,
+                          child: Icon(
+                            Icons.favorite,
+                            color: Colors.grey,
+                          ),
                         ),
-                      ),
-                      HorizontalSizeBox(height: 10),
-                      Text(
-                        'Headphone Holder',
-                        maxLines: 1,
-                        overflow: TextOverflow.ellipsis,
-                        style: TextStyle(
-                            fontSize: 16,
-                            fontWeight: FontWeight.w500,
-                            color: Colors.black),
-                      ),
-                      Row(
-                        children: [
-                          Icon(
-                            Icons.star,
-                            color: Colors.yellow,
+                        HorizontalSizeBox(height: 5),
+                        Container(
+                          width: itemWidth,
+                          height: 130,
+                          decoration: BoxDecoration(
+                            color: Colors.grey.withAlpha(50),
+                            borderRadius: BorderRadius.circular(10),
                           ),
-                          Text(
-                            '(348 reviews)',
-                            style: TextStyle(
-                                fontSize: 14,
-                                fontWeight: FontWeight.w400,
-                                color: Colors.grey),
-                          ),
-                        ],
-                      ),
-                      //HorizontalSizeBox(height: 5),
-                      Text(
-                        '\$35.90',
-                        style: TextStyle(
-                            fontSize: 20,
-                            fontWeight: FontWeight.w500,
-                            color: Colors.red),
-                      ),
-                    ],
+                        ),
+                        HorizontalSizeBox(height: 10),
+                        Text(
+                          'Headphone Holder',
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
+                          style: TextStyle(
+                              fontSize: 16,
+                              fontWeight: FontWeight.w500,
+                              color: Colors.black),
+                        ),
+                        Row(
+                          children: [
+                            Icon(
+                              Icons.star,
+                              color: Colors.yellow,
+                            ),
+                            Text(
+                              '(348 reviews)',
+                              style: TextStyle(
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.w400,
+                                  color: Colors.grey),
+                            ),
+                          ],
+                        ),
+                        //HorizontalSizeBox(height: 5),
+                        Text(
+                          '\$35.90',
+                          style: TextStyle(
+                              fontSize: 20,
+                              fontWeight: FontWeight.w500,
+                              color: Colors.red),
+                        ),
+                      ],
+                    ),
                   ),
                 );
               }),

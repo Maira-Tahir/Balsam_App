@@ -1,13 +1,10 @@
 import 'package:balsam/AppUtils/ColorConstants.dart';
 import 'package:balsam/CommonWidgets/VerticalSizedBox.dart';
-import 'package:balsam/Doctor/doctors_screen.dart';
-import 'package:balsam/Doctor/review_page.dart';
+import 'package:balsam/Doctor/paymentsuccess.dart';
 import 'package:balsam/HomePage/HomeScreen.dart';
-import 'package:balsam/Product/poplular_services.dart';
 import 'package:balsam/Screens/ForgetPassword.dart';
 import 'package:balsam/Screens/SignUp.dart';
 import 'package:balsam/Screens/VerificationCode.dart';
-import 'package:balsam/cart/cart_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import '../CommonWidgets/ButtonWidget.dart';
@@ -83,7 +80,7 @@ class LoginScreen extends StatelessWidget {
             InkWell(
               onTap: () => Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => VerificationCode()),
+                MaterialPageRoute(builder: (context) => ForgetPassword()),
               ),
               child: const Align(
                 alignment: Alignment.centerRight,
@@ -99,7 +96,7 @@ class LoginScreen extends StatelessWidget {
             ButtonWidget(
                 onPressed: () async {
                   Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => review()));
+                      MaterialPageRoute(builder: (context) => HomeScreen()));
                 },
                 color: blueColor,
                 text: 'SIGN IN'),

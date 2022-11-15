@@ -1,187 +1,313 @@
 import 'package:balsam/AppUtils/utils.dart';
+import 'package:balsam/CommonWidgets/HorizontalSizeBox.dart';
+import 'package:balsam/Doctor/doctorspage.dart';
+import 'package:balsam/HomePage/HomeScreen.dart';
+import 'package:balsam/HomePage/menu_button.dart';
+import 'package:balsam/profile/Help_Centre.dart';
+import 'package:balsam/profile/Myappointment.dart';
+import 'package:balsam/profile/profile_screen.dart';
+import 'package:bottom_navy_bar/bottom_navy_bar.dart';
 import 'package:flutter/material.dart';
 
-class track_order extends StatefulWidget {
-  const track_order({Key? key}) : super(key: key);
-
+class trackorder extends StatefulWidget {
   @override
-  State<track_order> createState() => _track_orderState();
+  State<trackorder> createState() => _trackorderState();
 }
 
-class _track_orderState extends State<track_order> {
+class _trackorderState extends State<trackorder> {
+  int _currentIndex = 0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        backgroundColor: Colors.white,
         appBar: AppBar(
-          title: Text("Track Order"),
-          actions: [
-            IconButton(
-                onPressed: () {}, icon: Icon(Icons.shopping_cart_outlined))
+          toolbarHeight: 0.0,
+        ),
+        bottomNavigationBar: BottomNavyBar(
+          selectedIndex: _currentIndex,
+          showElevation: true,
+          itemCornerRadius: 24,
+          curve: Curves.easeIn,
+          onItemSelected: (index) => setState(() => _currentIndex = index),
+          items: <BottomNavyBarItem>[
+            BottomNavyBarItem(
+              icon: InkWell(
+                onTap: () => Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => HomeScreen()),
+                ),
+                child: Icon(
+                  Icons.home_outlined,
+                  color: Colors.grey,
+                ),
+              ),
+              title: const Text(
+                'Home',
+                style: TextStyle(color: Colors.black54),
+              ),
+              textAlign: TextAlign.center,
+            ),
+            BottomNavyBarItem(
+              icon: InkWell(
+                onTap: () => Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => Dr_page()),
+                ),
+                child: Icon(
+                  Icons.business_center_outlined,
+                  color: Colors.grey,
+                ),
+              ),
+              title: const Text(
+                'Doctors',
+                style: TextStyle(color: Colors.black54),
+              ),
+              textAlign: TextAlign.center,
+            ),
+            BottomNavyBarItem(
+              icon: InkWell(
+                onTap: () => Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => Myappointment()),
+                ),
+                child: Icon(
+                  Icons.calendar_month_outlined,
+                  color: Colors.grey,
+                ),
+              ),
+              title: const Text(
+                'Calendar ',
+                style: TextStyle(
+                  color: Colors.black54,
+                ),
+              ),
+              textAlign: TextAlign.center,
+            ),
+            BottomNavyBarItem(
+              icon: InkWell(
+                onTap: () => Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => Profile()),
+                ),
+                child: Icon(
+                  Icons.grid_view_outlined,
+                  color: Colors.grey,
+                ),
+              ),
+              title: const Text(
+                'Profile',
+                style: TextStyle(color: Colors.black54),
+              ),
+              textAlign: TextAlign.center,
+            ),
           ],
         ),
         body: SingleChildScrollView(
-          child: Column(
-            children: [
-              SizedBox(
-                child: ListView.builder(
-                  physics: NeverScrollableScrollPhysics(),
-                  shrinkWrap: true,
-                  itemCount: 3,
-                  itemBuilder: (context, index) {
-                    return ExpansionTile(
-                      title: BoldText("#7047983"),
-                      trailing: Text('Details'),
-                      collapsedTextColor: Colors.black,
-                      textColor: Colors.black,
-                      childrenPadding: EdgeInsets.symmetric(horizontal: 20),
-                      children: [
-                        Container(
-                          decoration: BoxDecoration(
-                            color: Colors.white,
-                            borderRadius: BorderRadius.circular(10),
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Column(
+              children: [
+                HorizontalSizeBox(height: 20),
+                Align(
+                  alignment: Alignment.centerLeft,
+                  child: InkWell(
+                      onTap: () => Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => menubutton()),
                           ),
-                          margin: EdgeInsets.symmetric(vertical: 10),
-                          padding: EdgeInsets.all(6),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      child: Icon(Icons.menu)),
+                ),
+                HorizontalSizeBox(height: 20),
+                ListTile(
+                  leading: InkWell(
+                      onTap: () => Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => HomeScreen()),
+                          ),
+                      child: Icon(Icons.arrow_back, color: Colors.black)),
+                  title: Text('Track Order',
+                      style: TextStyle(
+                          color: Colors.black,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 20)),
+                  trailing: Icon(Icons.shopping_cart, color: Colors.black),
+                ),
+                SizedBox(
+                  child: ListView.builder(
+                    physics: NeverScrollableScrollPhysics(),
+                    shrinkWrap: true,
+                    itemCount: 3,
+                    itemBuilder: (context, index) {
+                      return ExpansionTile(
+                        title: BoldText("#7047983"),
+                        trailing: Text('Details'),
+                        collapsedTextColor: Colors.black,
+                        textColor: Colors.black,
+                        childrenPadding: EdgeInsets.symmetric(horizontal: 20),
+                        children: [
+                          Container(
+                            decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                            margin: EdgeInsets.symmetric(vertical: 10),
+                            padding: EdgeInsets.all(6),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    BoldText("Wooden Coffee Table"),
+                                    SizedBox(
+                                      height: 5,
+                                    ),
+                                    Row(
+                                      children: [
+                                        Icon(
+                                          Icons.star,
+                                          color: Colors.amber,
+                                          size: 15,
+                                        ),
+                                        grayText("   (426 reviews)"),
+                                      ],
+                                    ),
+                                    SizedBox(
+                                      height: 5,
+                                    ),
+                                    redText("\$274.00"),
+                                  ],
+                                ),
+                                Column(
+                                  children: [
+                                    Text(
+                                      '2',
+                                      style: TextStyle(fontSize: 18),
+                                    ),
+                                  ],
+                                ),
+                                Container(
+                                  height: 90,
+                                  width: 90,
+                                  decoration: BoxDecoration(
+                                      color: Colors.blue.withOpacity(0.1),
+                                      borderRadius: BorderRadius.circular(10),
+                                      border: Border.all(
+                                          color: Colors.red.shade900,
+                                          width: 2)),
+                                ),
+                              ],
+                            ),
+                          ),
+                          ExpansionTile(
+                            title: BoldText('Info Details'),
+                            trailing: Text('Show'),
+                            textColor: Colors.black,
+                            childrenPadding:
+                                EdgeInsets.symmetric(horizontal: 25),
                             children: [
-                              Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
+                              Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
                                 children: [
-                                  BoldText("Wooden Coffee Table"),
-                                  SizedBox(
-                                    height: 5,
-                                  ),
-                                  Row(
-                                    children: [
-                                      Icon(
-                                        Icons.star,
-                                        color: Colors.amber,
-                                        size: 15,
-                                      ),
-                                      grayText("   (426 reviews)"),
-                                    ],
-                                  ),
-                                  SizedBox(
-                                    height: 5,
-                                  ),
+                                  grayText2('Number: '),
+                                  Text("701798544"),
+                                ],
+                              ),
+                              SizedBox(
+                                height: 15,
+                              ),
+                              Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  grayText2('Date: '),
+                                  Text("22 Oct 2021 at 10:39"),
+                                ],
+                              ),
+                              SizedBox(
+                                height: 15,
+                              ),
+                              Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  grayText2('Status: '),
+                                  Text("Complete"),
+                                ],
+                              ),
+                              SizedBox(
+                                height: 15,
+                              ),
+                              Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  grayText2('Delivery: '),
+                                  Text("25 Oct 2021"),
+                                ],
+                              ),
+                              SizedBox(
+                                height: 15,
+                              ),
+                              Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  grayText2('Amount: '),
                                   redText("\$274.00"),
                                 ],
                               ),
-                              Column(
-                                children: [
-                                  Text(
-                                    '2',
-                                    style: TextStyle(fontSize: 18),
-                                  ),
-                                ],
-                              ),
-                              Container(
-                                height: 90,
-                                width: 90,
-                                decoration: BoxDecoration(
-                                    color: Colors.blue.withOpacity(0.1),
-                                    borderRadius: BorderRadius.circular(10),
-                                    border: Border.all(
-                                        color: Colors.red.shade900, width: 2)),
+                              SizedBox(
+                                height: 15,
                               ),
                             ],
                           ),
-                        ),
-                        ExpansionTile(
-                          title: BoldText('Info Details'),
-                          trailing: Text('Show'),
-                          textColor: Colors.black,
-                          childrenPadding: EdgeInsets.symmetric(horizontal: 25),
+                        ],
+                      );
+                    },
+                  ),
+                ),
+                SizedBox(
+                  height: 20,
+                ),
+                InkWell(
+                  onTap: () => Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => HelpCentre()),
+                  ),
+                  child: Container(
+                    height: 90,
+                    width: 280,
+                    color: Color(0xffEFEAE4),
+                    padding: EdgeInsets.all(20),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Column(
+                          mainAxisAlignment: MainAxisAlignment.spaceAround,
                           children: [
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                grayText2('Number: '),
-                                Text("701798544"),
-                              ],
-                            ),
-                            SizedBox(
-                              height: 15,
-                            ),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                grayText2('Date: '),
-                                Text("22 Oct 2021 at 10:39"),
-                              ],
-                            ),
-                            SizedBox(
-                              height: 15,
-                            ),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                grayText2('Status: '),
-                                Text("Complete"),
-                              ],
-                            ),
-                            SizedBox(
-                              height: 15,
-                            ),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                grayText2('Delivery: '),
-                                Text("25 Oct 2021"),
-                              ],
-                            ),
-                            SizedBox(
-                              height: 15,
-                            ),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                grayText2('Amount: '),
-                                redText("\$274.00"),
-                              ],
-                            ),
-                            SizedBox(
-                              height: 15,
-                            ),
+                            BoldText('Have a problem?'),
+                            Text('tufg weituu etiuei'),
                           ],
                         ),
-                      ],
-                    );
-                  },
-                ),
-              ),
-              SizedBox(
-                height: 20,
-              ),
-              Container(
-                height: 90,
-                width: 280,
-                color: Color(0xffEFEAE4),
-                padding: EdgeInsets.all(20),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Column(
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      children: [
-                        BoldText('Have a problem?'),
-                        Text('tufg weituu etiuei'),
+                        Container(
+                          height: 30,
+                          width: 80,
+                          decoration: BoxDecoration(
+                              border: Border.all(
+                            color: Colors.black,
+                          )),
+                          child: Center(child: Text('Get Help')),
+                        )
                       ],
                     ),
-                    Container(
-                      height: 30,
-                      width: 80,
-                      decoration: BoxDecoration(
-                          border: Border.all(
-                        color: Colors.black,
-                      )),
-                      child: Center(child: Text('Get Help')),
-                    )
-                  ],
-                ),
-              )
-            ],
+                  ),
+                )
+              ],
+            ),
           ),
         ));
   }

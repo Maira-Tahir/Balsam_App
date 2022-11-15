@@ -1,6 +1,11 @@
 import 'package:balsam/AppUtils/utils.dart';
 import 'package:balsam/CommonWidgets/widget.dart';
+import 'package:balsam/Doctor/doctorspage.dart';
 import 'package:balsam/Doctor/writereview.dart';
+import 'package:balsam/HomePage/HomeScreen.dart';
+import 'package:balsam/profile/Myappointment.dart';
+import 'package:balsam/profile/profile_screen.dart';
+import 'package:bottom_navy_bar/bottom_navy_bar.dart';
 import 'package:flutter/material.dart';
 
 class review extends StatefulWidget {
@@ -13,9 +18,89 @@ class review extends StatefulWidget {
 class _reviewState extends State<review> {
   @override
   Widget build(BuildContext context) {
+    int _currentIndex = 0;
     return Scaffold(
       appBar: AppBar(
         title: const Text("REVIEWS"),
+      ),
+      bottomNavigationBar: BottomNavyBar(
+        selectedIndex: _currentIndex,
+        showElevation: true,
+        itemCornerRadius: 24,
+        curve: Curves.easeIn,
+        onItemSelected: (index) => setState(() => _currentIndex = index),
+        items: <BottomNavyBarItem>[
+          BottomNavyBarItem(
+            icon: InkWell(
+              onTap: () => Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => HomeScreen()),
+              ),
+              child: Icon(
+                Icons.home_outlined,
+                color: Colors.grey,
+              ),
+            ),
+            title: const Text(
+              'Home',
+              style: TextStyle(color: Colors.black54),
+            ),
+            textAlign: TextAlign.center,
+          ),
+          BottomNavyBarItem(
+            icon: InkWell(
+              onTap: () => Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => Dr_page()),
+              ),
+              child: Icon(
+                Icons.business_center_outlined,
+                color: Colors.grey,
+              ),
+            ),
+            title: const Text(
+              'Doctors',
+              style: TextStyle(color: Colors.black54),
+            ),
+            textAlign: TextAlign.center,
+          ),
+          BottomNavyBarItem(
+            icon: InkWell(
+              onTap: () => Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => Myappointment()),
+              ),
+              child: Icon(
+                Icons.calendar_month_outlined,
+                color: Colors.grey,
+              ),
+            ),
+            title: const Text(
+              'Calendar ',
+              style: TextStyle(
+                color: Colors.black54,
+              ),
+            ),
+            textAlign: TextAlign.center,
+          ),
+          BottomNavyBarItem(
+            icon: InkWell(
+              onTap: () => Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => Profile()),
+              ),
+              child: Icon(
+                Icons.grid_view_outlined,
+                color: Colors.grey,
+              ),
+            ),
+            title: const Text(
+              'Profile',
+              style: TextStyle(color: Colors.black54),
+            ),
+            textAlign: TextAlign.center,
+          ),
+        ],
       ),
       body: SingleChildScrollView(
         child: Container(

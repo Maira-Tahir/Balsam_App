@@ -1,9 +1,25 @@
 import 'package:balsam/AppUtils/ColorConstants.dart';
+import 'package:balsam/CommonWidgets/ButtonWidget.dart';
 import 'package:balsam/CommonWidgets/HorizontalSizeBox.dart';
 import 'package:balsam/CommonWidgets/VerticalSizedBox.dart';
+import 'package:balsam/Doctor/doctorspage.dart';
+import 'package:balsam/HomePage/Categories.dart';
+import 'package:balsam/HomePage/HomeScreen.dart';
+import 'package:balsam/Product/SkinCare.dart';
+import 'package:balsam/Product/latestOffers.dart';
+import 'package:balsam/profile/Myappointment.dart';
+import 'package:balsam/profile/profile_screen.dart';
+import 'package:bottom_navy_bar/bottom_navy_bar.dart';
 import 'package:flutter/material.dart';
 
-class Category extends StatelessWidget {
+class Category extends StatefulWidget {
+  @override
+  State<Category> createState() => _CategoryState();
+}
+
+class _CategoryState extends State<Category> {
+  int _currentIndex = 0;
+
   @override
   Widget build(BuildContext context) {
     final itemHeight = 300;
@@ -12,17 +28,108 @@ class Category extends StatelessWidget {
       backgroundColor: whiteColor,
       appBar: AppBar(
         backgroundColor: whiteColor,
-        leading: IconButton(
-          icon: const Icon(Icons.arrow_back, color: Colors.black),
-          onPressed: () => Navigator.of(context).pop(),
+        leading: InkWell(
+          onTap: () => Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => HomeScreen()),
+          ),
+          child: IconButton(
+            icon: Icon(Icons.arrow_back, color: Colors.black),
+            onPressed: () => Navigator.of(context).pop(),
+          ),
         ),
         title: const Text('Category', style: TextStyle(color: Colors.black)),
         elevation: 0.0,
-        actions: const [
-          Icon(
-            Icons.search,
-            color: Colors.black,
+        actions: [
+          InkWell(
+            onTap: () => Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => Categories()),
+            ),
+            child: Icon(
+              Icons.search,
+              color: Colors.black,
+            ),
           )
+        ],
+      ),
+      bottomNavigationBar: BottomNavyBar(
+        selectedIndex: _currentIndex,
+        showElevation: true,
+        itemCornerRadius: 24,
+        curve: Curves.easeIn,
+        onItemSelected: (index) => setState(() => _currentIndex = index),
+        items: <BottomNavyBarItem>[
+          BottomNavyBarItem(
+            icon: InkWell(
+              onTap: () => Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => HomeScreen()),
+              ),
+              child: Icon(
+                Icons.home_outlined,
+                color: Colors.grey,
+              ),
+            ),
+            title: const Text(
+              'Home',
+              style: TextStyle(color: Colors.black54),
+            ),
+            textAlign: TextAlign.center,
+          ),
+          BottomNavyBarItem(
+            icon: InkWell(
+              onTap: () => Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => Dr_page()),
+              ),
+              child: Icon(
+                Icons.business_center_outlined,
+                color: Colors.grey,
+              ),
+            ),
+            title: const Text(
+              'Doctors',
+              style: TextStyle(color: Colors.black54),
+            ),
+            textAlign: TextAlign.center,
+          ),
+          BottomNavyBarItem(
+            icon: InkWell(
+              onTap: () => Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => Myappointment()),
+              ),
+              child: Icon(
+                Icons.calendar_month_outlined,
+                color: Colors.grey,
+              ),
+            ),
+            title: const Text(
+              'Calendar ',
+              style: TextStyle(
+                color: Colors.black54,
+              ),
+            ),
+            textAlign: TextAlign.center,
+          ),
+          BottomNavyBarItem(
+            icon: InkWell(
+              onTap: () => Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => Profile()),
+              ),
+              child: Icon(
+                Icons.grid_view_outlined,
+                color: Colors.grey,
+              ),
+            ),
+            title: const Text(
+              'Profile',
+              style: TextStyle(color: Colors.black54),
+            ),
+            textAlign: TextAlign.center,
+          ),
         ],
       ),
       body: SingleChildScrollView(
@@ -63,21 +170,28 @@ class Category extends StatelessWidget {
                                 color: Colors.white),
                           ),
                           HorizontalSizeBox(height: 30),
-                          Container(
-                            height: 50,
-                            width: MediaQuery.of(context).size.width,
-                            decoration: BoxDecoration(
-                              color: Colors.redAccent,
-                              borderRadius: BorderRadius.circular(50),
+                          InkWell(
+                            onTap: () => Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => latestoffer()),
                             ),
-                            alignment: Alignment.center,
-                            child: Text(
-                              'Get Now',
-                              textAlign: TextAlign.center,
-                              style: TextStyle(
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.w500,
-                                  color: Colors.white),
+                            child: Container(
+                              height: 50,
+                              width: MediaQuery.of(context).size.width,
+                              decoration: BoxDecoration(
+                                color: Colors.redAccent,
+                                borderRadius: BorderRadius.circular(50),
+                              ),
+                              alignment: Alignment.center,
+                              child: Text(
+                                'Get Now',
+                                textAlign: TextAlign.center,
+                                style: TextStyle(
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.w500,
+                                    color: Colors.white),
+                              ),
                             ),
                           ),
                         ],
@@ -145,35 +259,41 @@ class Category extends StatelessWidget {
                   ),
                   physics: const NeverScrollableScrollPhysics(),
                   itemBuilder: (context, index) {
-                    return Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Container(
-                        height: 80,
-                        width: 80,
-                        decoration: BoxDecoration(
-                          color: lightBlueColor,
-                        ),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Image.network(
-                                  'https://media.istockphoto.com/id/1177145926/vector/anatomical-heart-isolated-heart-diagnostic-center-sign-human-heart-cartoon-design-vector.jpg?s=612x612&w=0&k=20&c=h0SLB4VeWHfvyzRmnT1EJe4VyzGArBEzYdsWcag8IHg=',
-                                  width: 60,
-                                  height: 50,
-                                ),
-                              ],
-                            ),
-                            Column(
-                              children: [Text('heart')],
-                            ),
-                          ],
+                    return InkWell(
+                      onTap: () => Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => SkinCare()),
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Container(
+                          height: 80,
+                          width: 80,
+                          decoration: BoxDecoration(
+                            color: lightBlueColor,
+                          ),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Image.network(
+                                    'https://cdn-icons-png.flaticon.com/128/508/508786.png',
+                                    width: 60,
+                                    height: 50,
+                                  ),
+                                ],
+                              ),
+                              Column(
+                                children: [Text('heart')],
+                              ),
+                            ],
+                          ),
                         ),
                       ),
                     );
-                  })
+                  }),
             ],
           ),
         ),

@@ -1,6 +1,8 @@
 import 'package:balsam/AppUtils/ColorConstants.dart';
 import 'package:balsam/CommonWidgets/ButtonWidget.dart';
 import 'package:balsam/Doctor/add_new_card.dart';
+import 'package:balsam/Doctor/paymentsuccess.dart';
+import 'package:balsam/HomePage/HomeScreen.dart';
 import 'package:balsam/components/button.dart';
 import 'package:balsam/components/docproFileTile.dart';
 import 'package:flutter/material.dart';
@@ -17,9 +19,15 @@ class Payment extends StatelessWidget {
         elevation: 0,
         leading: IconButton(
           onPressed: () {},
-          icon: const Icon(
-            Icons.arrow_back,
-            color: Colors.black,
+          icon: InkWell(
+            onTap: () => Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => HomeScreen()),
+            ),
+            child: const Icon(
+              Icons.arrow_back,
+              color: Colors.black,
+            ),
           ),
         ),
         title: const Text(
@@ -75,7 +83,7 @@ class Payment extends StatelessWidget {
                       MaterialPageRoute(builder: (context) => AddCard()));
                 },
                 // color: ,
-                text: '/+Add New Card', color: lightBlueColor,
+                text: '+Add New Card', color: lightBlueColor,
               ),
               const SizedBox(
                 height: 12,
@@ -84,9 +92,9 @@ class Payment extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
                   Container(
-                    padding: const EdgeInsets.all(10.0),
+                    padding: EdgeInsets.all(8.0),
                     height: 65,
-                    width: 210,
+                    width: 220,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(15),
                       color: Colors.blue, //
@@ -272,8 +280,15 @@ class Payment extends StatelessWidget {
                                     )
                                   ],
                                 ),
-                                button(
-                                    'PAYMENT NOW', Colors.white, Colors.black)
+                                InkWell(
+                                  onTap: () => Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => PaymentSuccess()),
+                                  ),
+                                  child: button('PAYMENT NOW', Colors.white,
+                                      Colors.black),
+                                )
                               ],
                             ),
                           ),

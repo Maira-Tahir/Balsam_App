@@ -1,8 +1,10 @@
 import 'dart:async';
 import 'package:balsam/AppUtils/ColorConstants.dart';
 import 'package:balsam/CommonWidgets/VerticalSizedBox.dart';
+import 'package:balsam/Doctor/appointmentScreen.dart';
 import 'package:balsam/components/button.dart';
 import 'package:balsam/components/docproFileTile.dart';
+import 'package:balsam/profile/Myappointment.dart';
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
@@ -133,27 +135,39 @@ class _SingleApponitmentState extends State<SingleApponitment> {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Container(
-                  height: 50,
-                  width: 180,
-                  decoration: BoxDecoration(
-                      color: Colors.blue,
-                      borderRadius: BorderRadius.circular(30)),
-                  child: Center(
-                    child: Text('CHANGE',
-                        style: TextStyle(color: Colors.white, fontSize: 22)),
+                InkWell(
+                  onTap: () => Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => Appoint_Screen()),
+                  ),
+                  child: Container(
+                    height: 50,
+                    width: 180,
+                    decoration: BoxDecoration(
+                        color: Colors.blue,
+                        borderRadius: BorderRadius.circular(30)),
+                    child: Center(
+                      child: Text('CHANGE',
+                          style: TextStyle(color: Colors.white, fontSize: 22)),
+                    ),
                   ),
                 ),
                 VerticalSizeBox(width: 10),
-                Container(
-                  height: 50,
-                  width: 180,
-                  decoration: BoxDecoration(
-                      color: Colors.pink,
-                      borderRadius: BorderRadius.circular(30)),
-                  child: Center(
-                    child: Text('CANCEL',
-                        style: TextStyle(color: Colors.white, fontSize: 22)),
+                InkWell(
+                  onTap: () => Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => Myappointment()),
+                  ),
+                  child: Container(
+                    height: 50,
+                    width: 180,
+                    decoration: BoxDecoration(
+                        color: Colors.pink,
+                        borderRadius: BorderRadius.circular(30)),
+                    child: Center(
+                      child: Text('CANCEL',
+                          style: TextStyle(color: Colors.white, fontSize: 22)),
+                    ),
                   ),
                 ),
               ],

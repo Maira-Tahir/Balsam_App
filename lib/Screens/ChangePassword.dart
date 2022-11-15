@@ -1,4 +1,5 @@
 import 'package:balsam/AppUtils/ColorConstants.dart';
+import 'package:balsam/HomePage/HomeScreen.dart';
 import 'package:balsam/Screens/LoginScreen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -85,7 +86,7 @@ class ChangePassword extends StatelessWidget {
             ButtonWidget(
                 onPressed: () async {
                   Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => LoginScreen()));
+                      MaterialPageRoute(builder: (context) => HomeScreen()));
                 },
                 color: blueColor,
                 text: 'SAVE'),

@@ -1,9 +1,13 @@
 // ignore_for_file: camel_case_types
 
+import 'package:balsam/AppUtils/ColorConstants.dart';
+import 'package:balsam/CommonWidgets/ButtonWidget.dart';
 import 'package:balsam/CommonWidgets/text_filed.dart';
+import 'package:balsam/Doctor/appointmentScreen.dart';
 import 'package:flutter/material.dart';
 
 import '../components/button.dart';
+import 'payment.dart';
 
 class Book_appoint extends StatefulWidget {
   Book_appoint({Key? key}) : super(key: key);
@@ -20,13 +24,19 @@ class _Book_appointState extends State<Book_appoint> {
         centerTitle: true,
         backgroundColor: Colors.transparent,
         elevation: 0,
-        leading: IconButton(
-          onPressed: () {
-            Navigator.pop(context);
-          },
-          icon: const Icon(
-            Icons.arrow_back,
-            color: Colors.black,
+        leading: InkWell(
+          onTap: () => Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => Appoint_Screen()),
+          ),
+          child: IconButton(
+            onPressed: () {
+              Navigator.pop(context);
+            },
+            icon: const Icon(
+              Icons.arrow_back,
+              color: Colors.black,
+            ),
           ),
         ),
         title: const Text(
@@ -249,7 +259,13 @@ class _Book_appointState extends State<Book_appoint> {
               const SizedBox(
                 height: 15,
               ),
-              button("BOOK APPOINTMENT", Colors.blue, Colors.white)
+              ButtonWidget(
+                  onPressed: () async {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => Payment()));
+                  },
+                  color: blueColor,
+                  text: 'Book Appointment'),
             ],
           ),
         ),

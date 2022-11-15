@@ -1,32 +1,150 @@
 import 'package:balsam/AppUtils/utils.dart';
+import 'package:balsam/CommonWidgets/HorizontalSizeBox.dart';
+import 'package:balsam/Doctor/doctorspage.dart';
+import 'package:balsam/HomePage/HomeScreen.dart';
+import 'package:balsam/HomePage/menu_button.dart';
+import 'package:balsam/cart/cart_screen.dart';
+import 'package:balsam/profile/Myappointment.dart';
+import 'package:balsam/profile/profile_screen.dart';
+import 'package:bottom_navy_bar/bottom_navy_bar.dart';
 import 'package:flutter/material.dart';
 
-class track_order extends StatefulWidget {
-  const track_order({Key? key}) : super(key: key);
+class OrderDetails extends StatefulWidget {
+  const OrderDetails({Key? key}) : super(key: key);
 
   @override
-  State<track_order> createState() => _track_orderState();
+  State<OrderDetails> createState() => _OrderDetailsState();
 }
 
-class _track_orderState extends State<track_order> {
+class _OrderDetailsState extends State<OrderDetails> {
   @override
   Widget build(BuildContext context) {
+    int _currentIndex = 0;
     return Scaffold(
+        backgroundColor: Colors.white,
         appBar: AppBar(
-          title: Text("Track Order"),
-          actions: [
-            IconButton(
-                onPressed: () {}, icon: Icon(Icons.shopping_cart_outlined))
+          toolbarHeight: 0.0,
+        ),
+        bottomNavigationBar: BottomNavyBar(
+          selectedIndex: _currentIndex,
+          showElevation: true,
+          itemCornerRadius: 24,
+          curve: Curves.easeIn,
+          onItemSelected: (index) => setState(() => _currentIndex = index),
+          items: <BottomNavyBarItem>[
+            BottomNavyBarItem(
+              icon: InkWell(
+                onTap: () => Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => HomeScreen()),
+                ),
+                child: Icon(
+                  Icons.home_outlined,
+                  color: Colors.grey,
+                ),
+              ),
+              title: const Text(
+                'Home',
+                style: TextStyle(color: Colors.black54),
+              ),
+              textAlign: TextAlign.center,
+            ),
+            BottomNavyBarItem(
+              icon: InkWell(
+                onTap: () => Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => Dr_page()),
+                ),
+                child: Icon(
+                  Icons.business_center_outlined,
+                  color: Colors.grey,
+                ),
+              ),
+              title: const Text(
+                'Doctors',
+                style: TextStyle(color: Colors.black54),
+              ),
+              textAlign: TextAlign.center,
+            ),
+            BottomNavyBarItem(
+              icon: InkWell(
+                onTap: () => Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => Myappointment()),
+                ),
+                child: Icon(
+                  Icons.calendar_month_outlined,
+                  color: Colors.grey,
+                ),
+              ),
+              title: const Text(
+                'Calendar ',
+                style: TextStyle(
+                  color: Colors.black54,
+                ),
+              ),
+              textAlign: TextAlign.center,
+            ),
+            BottomNavyBarItem(
+              icon: InkWell(
+                onTap: () => Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => Profile()),
+                ),
+                child: Icon(
+                  Icons.grid_view_outlined,
+                  color: Colors.grey,
+                ),
+              ),
+              title: const Text(
+                'Profile',
+                style: TextStyle(color: Colors.black54),
+              ),
+              textAlign: TextAlign.center,
+            ),
           ],
         ),
         body: SingleChildScrollView(
           child: Column(
             children: [
+              HorizontalSizeBox(height: 20),
+              Align(
+                alignment: Alignment.centerLeft,
+                child: InkWell(
+                    onTap: () => Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => menubutton()),
+                        ),
+                    child: Icon(Icons.menu)),
+              ),
+              HorizontalSizeBox(height: 20),
+              ListTile(
+                leading: InkWell(
+                    onTap: () => Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => HomeScreen()),
+                        ),
+                    child: Icon(Icons.arrow_back, color: Colors.black)),
+                title: Text('Order Details',
+                    style: TextStyle(
+                        color: Colors.black,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 20)),
+                trailing: InkWell(
+                    onTap: () => Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => cartscreen()),
+                        ),
+                    child: Icon(Icons.shopping_cart, color: Colors.black)),
+              ),
+              SizedBox(
+                height: 20,
+              ),
               SizedBox(
                 child: ListView.builder(
                   physics: NeverScrollableScrollPhysics(),
                   shrinkWrap: true,
-                  itemCount: 1,
+                  itemCount: 2,
                   itemBuilder: (context, index) {
                     return ExpansionTile(
                       title: BoldText("#7047983"),
@@ -154,33 +272,6 @@ class _track_orderState extends State<track_order> {
               SizedBox(
                 height: 20,
               ),
-              Container(
-                height: 90,
-                width: 280,
-                color: Color(0xffEFEAE4),
-                padding: EdgeInsets.all(20),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Column(
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      children: [
-                        BoldText('Have a problem?'),
-                        Text('tufg weituu etiuei'),
-                      ],
-                    ),
-                    Container(
-                      height: 30,
-                      width: 80,
-                      decoration: BoxDecoration(
-                          border: Border.all(
-                        color: Colors.black,
-                      )),
-                      child: Center(child: Text('Get Help')),
-                    )
-                  ],
-                ),
-              )
             ],
           ),
         ));

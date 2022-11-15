@@ -1,6 +1,7 @@
 import 'package:balsam/AppUtils/ColorConstants.dart';
 import 'package:balsam/CommonWidgets/ButtonWidget.dart';
 import 'package:balsam/CommonWidgets/HorizontalSizeBox.dart';
+import 'package:balsam/profile/profile_screen.dart';
 
 import 'package:flutter/material.dart';
 
@@ -147,8 +148,8 @@ class editprofile extends StatelessWidget {
               ),
               ButtonWidget(
                   onPressed: () async {
-                    // Navigator.push(context,
-                    //     MaterialPageRoute(builder: (context) => DoctorsScreen()));
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => Profile()));
                   },
                   color: blueColor,
                   text: 'SAVE CHANGES'),

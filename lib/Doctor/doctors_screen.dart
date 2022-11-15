@@ -1,5 +1,6 @@
 import 'package:balsam/Doctor/appointmentScreen.dart';
 import 'package:balsam/Doctor/doctorspage.dart';
+import 'package:bottom_navy_bar/bottom_navy_bar.dart';
 import 'package:flutter/material.dart';
 import './p1.dart';
 import './payment.dart';
@@ -45,61 +46,61 @@ class _DoctorsScreenState extends State<DoctorsScreen> {
           ),
         ),
       ),
-      // bottomNavigationBar: BottomNavyBar(
-      //   selectedIndex: _currentIndex,
-      //   showElevation: true,
-      //   itemCornerRadius: 24,
-      //   curve: Curves.easeIn,
-      //   onItemSelected: (index) => setState(() => _currentIndex = index),
-      //   items: <BottomNavyBarItem>[
-      //     BottomNavyBarItem(
-      //       icon: const Icon(
-      //         Icons.home_outlined,
-      //         color: Colors.grey,
-      //       ),
-      //       title: const Text(
-      //         'Home',
-      //         style: TextStyle(color: Colors.black54),
-      //       ),
-      //       textAlign: TextAlign.center,
-      //     ),
-      //     BottomNavyBarItem(
-      //       icon: const Icon(
-      //         Icons.business_center_outlined,
-      //         color: Colors.grey,
-      //       ),
-      //       title: const Text(
-      //         'Doctors',
-      //         style: TextStyle(color: Colors.black54),
-      //       ),
-      //       textAlign: TextAlign.center,
-      //     ),
-      //     BottomNavyBarItem(
-      //       icon: const Icon(
-      //         Icons.calendar_month_outlined,
-      //         color: Colors.grey,
-      //       ),
-      //       title: const Text(
-      //         'Calendar ',
-      //         style: TextStyle(
-      //           color: Colors.black54,
-      //         ),
-      //       ),
-      //       textAlign: TextAlign.center,
-      //     ),
-      //     BottomNavyBarItem(
-      //       icon: const Icon(
-      //         Icons.grid_view_outlined,
-      //         color: Colors.grey,
-      //       ),
-      //       title: const Text(
-      //         'Profile',
-      //         style: TextStyle(color: Colors.black54),
-      //       ),
-      //       textAlign: TextAlign.center,
-      //     ),
-      //   ],
-      // ),
+      bottomNavigationBar: BottomNavyBar(
+        selectedIndex: _currentIndex,
+        showElevation: true,
+        itemCornerRadius: 24,
+        curve: Curves.easeIn,
+        onItemSelected: (index) => setState(() => _currentIndex = index),
+        items: <BottomNavyBarItem>[
+          BottomNavyBarItem(
+            icon: const Icon(
+              Icons.home_outlined,
+              color: Colors.grey,
+            ),
+            title: const Text(
+              'Home',
+              style: TextStyle(color: Colors.black54),
+            ),
+            textAlign: TextAlign.center,
+          ),
+          BottomNavyBarItem(
+            icon: const Icon(
+              Icons.business_center_outlined,
+              color: Colors.grey,
+            ),
+            title: const Text(
+              'Doctors',
+              style: TextStyle(color: Colors.black54),
+            ),
+            textAlign: TextAlign.center,
+          ),
+          BottomNavyBarItem(
+            icon: const Icon(
+              Icons.calendar_month_outlined,
+              color: Colors.grey,
+            ),
+            title: const Text(
+              'Calendar ',
+              style: TextStyle(
+                color: Colors.black54,
+              ),
+            ),
+            textAlign: TextAlign.center,
+          ),
+          BottomNavyBarItem(
+            icon: const Icon(
+              Icons.grid_view_outlined,
+              color: Colors.grey,
+            ),
+            title: const Text(
+              'Profile',
+              style: TextStyle(color: Colors.black54),
+            ),
+            textAlign: TextAlign.center,
+          ),
+        ],
+      ),
     );
   }
 }

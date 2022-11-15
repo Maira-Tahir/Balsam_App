@@ -1,3 +1,9 @@
+import 'package:balsam/AppUtils/ColorConstants.dart';
+import 'package:balsam/CommonWidgets/ButtonWidget.dart';
+import 'package:balsam/Doctor/doctorspage.dart';
+import 'package:balsam/HomePage/Categories.dart';
+import 'package:balsam/HomePage/HomeScreen.dart';
+import 'package:balsam/profile/chat.dart';
 import 'package:flutter/material.dart';
 import 'package:balsam/components/button.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
@@ -30,23 +36,35 @@ class _Appoint_ScreenState extends State<Appoint_Screen> {
         centerTitle: true,
         backgroundColor: Colors.transparent,
         elevation: 0,
-        leading: IconButton(
-          onPressed: () {},
-          icon: const Icon(
-            Icons.arrow_back,
-            color: Colors.black,
+        leading: InkWell(
+          onTap: () => Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => Dr_page()),
+          ),
+          child: IconButton(
+            onPressed: () {},
+            icon: const Icon(
+              Icons.arrow_back,
+              color: Colors.black,
+            ),
           ),
         ),
-        actions: const <Widget>[
+        actions: <Widget>[
           Icon(
             Icons.notifications_outlined,
             color: Colors.black,
             size: 28,
           ),
-          Icon(
-            Icons.search_outlined,
-            color: Colors.black,
-            size: 28,
+          InkWell(
+            onTap: () => Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => Categories()),
+            ),
+            child: Icon(
+              Icons.search_outlined,
+              color: Colors.black,
+              size: 28,
+            ),
           ),
         ],
       ),
@@ -72,9 +90,15 @@ class _Appoint_ScreenState extends State<Appoint_Screen> {
                     borderRadius: BorderRadius.circular(10),
                     color: (Colors.blue),
                   ),
-                  child: const Icon(
-                    Icons.email_rounded,
-                    color: Colors.white,
+                  child: InkWell(
+                    onTap: () => Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => ChatPage()),
+                    ),
+                    child: const Icon(
+                      Icons.email_rounded,
+                      color: Colors.white,
+                    ),
                   ),
                 ),
               ),
@@ -98,7 +122,7 @@ class _Appoint_ScreenState extends State<Appoint_Screen> {
                 text: TextSpan(
                   text:
                       'Although the basic version of BottomNavigationBar is working well, we have one \n\nproblem: whatever action — e.g., searching, filtering, entering text, scrolling through a list, filling out a contact form, etc. — is being performed on the page will be lost upon selecting another item from the BottomNavigationBar:',
-                  style: DefaultTextStyle.of(context).style,
+                  style: TextStyle(fontSize: 18, color: Colors.black54),
                   children: const <TextSpan>[],
                 ),
               ),
@@ -160,7 +184,13 @@ class _Appoint_ScreenState extends State<Appoint_Screen> {
             const SizedBox(
               height: 15,
             ),
-            button('BOOK APPOINTMENT', Colors.blue, Colors.white)
+            ButtonWidget(
+                onPressed: () async {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => Book_appoint()));
+                },
+                color: blueColor,
+                text: 'Book Appointment'),
           ],
         ),
       ),

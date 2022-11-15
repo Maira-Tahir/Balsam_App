@@ -1,6 +1,13 @@
+import 'package:balsam/AppUtils/ColorConstants.dart';
 import 'package:balsam/AppUtils/utils.dart';
 import 'package:balsam/CommonWidgets/widget.dart';
+import 'package:balsam/Doctor/doctorspage.dart';
+import 'package:balsam/Doctor/paymentsuccess.dart';
+import 'package:balsam/HomePage/HomeScreen.dart';
 import 'package:balsam/cart/track_order.dart';
+import 'package:balsam/profile/Myappointment.dart';
+import 'package:balsam/profile/profile_screen.dart';
+import 'package:bottom_navy_bar/bottom_navy_bar.dart';
 import 'package:flutter/material.dart';
 
 class cartscreen extends StatefulWidget {
@@ -11,14 +18,114 @@ class cartscreen extends StatefulWidget {
 }
 
 class _cart_screenState extends State<cartscreen> {
+  int _currentIndex = 0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Cart"),
+        backgroundColor: whiteColor,
+        leading: InkWell(
+          onTap: () => Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => HomeScreen()),
+          ),
+          child: IconButton(
+            icon: const Icon(Icons.arrow_back, color: Colors.black),
+            onPressed: () => Navigator.of(context).pop(),
+          ),
+        ),
+        title: const Text('Cart', style: TextStyle(color: Colors.black)),
+        elevation: 0.0,
         actions: [
-          IconButton(
-              onPressed: () {}, icon: Icon(Icons.shopping_cart_outlined)),
+          InkWell(
+            onTap: () => Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => cartscreen()),
+            ),
+            child: Icon(
+              Icons.shopping_cart,
+              color: Colors.black,
+            ),
+          )
+        ],
+      ),
+      bottomNavigationBar: BottomNavyBar(
+        selectedIndex: _currentIndex,
+        showElevation: true,
+        itemCornerRadius: 24,
+        curve: Curves.easeIn,
+        onItemSelected: (index) => setState(() => _currentIndex = index),
+        items: <BottomNavyBarItem>[
+          BottomNavyBarItem(
+            icon: InkWell(
+              onTap: () => Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => HomeScreen()),
+              ),
+              child: Icon(
+                Icons.home_outlined,
+                color: Colors.grey,
+              ),
+            ),
+            title: const Text(
+              'Home',
+              style: TextStyle(color: Colors.black54),
+            ),
+            textAlign: TextAlign.center,
+          ),
+          BottomNavyBarItem(
+            icon: InkWell(
+              onTap: () => Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => Dr_page()),
+              ),
+              child: Icon(
+                Icons.business_center_outlined,
+                color: Colors.grey,
+              ),
+            ),
+            title: const Text(
+              'Doctors',
+              style: TextStyle(color: Colors.black54),
+            ),
+            textAlign: TextAlign.center,
+          ),
+          BottomNavyBarItem(
+            icon: InkWell(
+              onTap: () => Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => Myappointment()),
+              ),
+              child: Icon(
+                Icons.calendar_month_outlined,
+                color: Colors.grey,
+              ),
+            ),
+            title: const Text(
+              'Calendar ',
+              style: TextStyle(
+                color: Colors.black54,
+              ),
+            ),
+            textAlign: TextAlign.center,
+          ),
+          BottomNavyBarItem(
+            icon: InkWell(
+              onTap: () => Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => Profile()),
+              ),
+              child: Icon(
+                Icons.grid_view_outlined,
+                color: Colors.grey,
+              ),
+            ),
+            title: const Text(
+              'Profile',
+              style: TextStyle(color: Colors.black54),
+            ),
+            textAlign: TextAlign.center,
+          ),
         ],
       ),
       body: SingleChildScrollView(
@@ -191,18 +298,24 @@ class _cart_screenState extends State<cartscreen> {
               GestureDetector(
                 onTap: () {
                   Navigator.of(context).push(MaterialPageRoute(
-                    builder: (context) => track_order(),
+                    builder: (context) => trackorder(),
                   ));
                 },
-                child: Container(
-                  height: 50,
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(50),
-                      color: Colors.blue),
-                  child: Center(
-                    child: Text(
-                      "CHECK OUT",
-                      style: TextStyle(color: Colors.white, fontSize: 20),
+                child: InkWell(
+                  onTap: () => Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => PaymentSuccess()),
+                  ),
+                  child: Container(
+                    height: 50,
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(50),
+                        color: Colors.blue),
+                    child: Center(
+                      child: Text(
+                        "CHECK OUT",
+                        style: TextStyle(color: Colors.white, fontSize: 20),
+                      ),
                     ),
                   ),
                 ),
