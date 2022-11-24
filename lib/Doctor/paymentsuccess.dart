@@ -1,5 +1,7 @@
 import 'package:balsam/CommonWidgets/HorizontalSizeBox.dart';
 import 'package:balsam/CommonWidgets/VerticalSizedBox.dart';
+import 'package:balsam/cart/Order_details.dart';
+import 'package:balsam/cart/track_order.dart';
 import 'package:flutter/material.dart';
 
 class PaymentSuccess extends StatelessWidget {
@@ -19,15 +21,21 @@ class PaymentSuccess extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
-                  Container(
-                    height: 40,
-                    width: 40,
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(20),
-                        border: Border.all(color: Colors.white)),
-                    child: Icon(
-                      Icons.close,
-                      color: Colors.white,
+                  InkWell(
+                    onTap: () => Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => OrderDetails()),
+                    ),
+                    child: Container(
+                      height: 40,
+                      width: 40,
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(20),
+                          border: Border.all(color: Colors.white)),
+                      child: Icon(
+                        Icons.close,
+                        color: Colors.white,
+                      ),
                     ),
                   ),
                 ],

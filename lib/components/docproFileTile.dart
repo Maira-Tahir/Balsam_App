@@ -19,14 +19,14 @@ class Doctor_Profile_Tile extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(12.0),
       child: SizedBox(
-        height: 150,
+        height: MediaQuery.of(context).size.height * 0.25,
         child: Stack(children: [
           Positioned(
             bottom: 0,
             right: 0,
             left: 0,
             child: Container(
-              height: 120,
+              height: MediaQuery.of(context).size.height * 0.2,
               width: double.infinity,
               decoration: BoxDecoration(
                   color: const Color(0xFFE9F4F9),
@@ -36,10 +36,11 @@ class Doctor_Profile_Tile extends StatelessWidget {
                 child: Column(
                   // mainAxisAlignment: MainAxisAlignment.end,
                   crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    const SizedBox(
-                      height: 12,
-                    ),
+                    // const SizedBox(
+                    //   height: 12,
+                    // ),
                     Text(
                       specialization,
                       style: const TextStyle(
@@ -47,9 +48,9 @@ class Doctor_Profile_Tile extends StatelessWidget {
                           fontWeight: FontWeight.w500,
                           color: (Colors.red)),
                     ),
-                    const SizedBox(
-                      height: 10,
-                    ),
+                    // const SizedBox(
+                    //   height: 10,
+                    // ),
                     Text(
                       Doc_Name,
                       style: const TextStyle(
@@ -57,12 +58,14 @@ class Doctor_Profile_Tile extends StatelessWidget {
                           fontWeight: FontWeight.w500,
                           color: Colors.black54),
                     ),
-                    Text(
-                      Year_of_experiences,
-                      style: const TextStyle(
-                          fontSize: 11,
-                          fontWeight: FontWeight.w300,
-                          color: Colors.black54),
+                    Expanded(
+                      child: Text(
+                        Year_of_experiences,
+                        style: const TextStyle(
+                            fontSize: 11,
+                            fontWeight: FontWeight.w300,
+                            color: Colors.black54),
+                      ),
                     ),
                     const SizedBox(
                       height: 7,

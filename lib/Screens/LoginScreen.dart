@@ -5,6 +5,7 @@ import 'package:balsam/HomePage/HomeScreen.dart';
 import 'package:balsam/Screens/ForgetPassword.dart';
 import 'package:balsam/Screens/SignUp.dart';
 import 'package:balsam/Screens/VerificationCode.dart';
+import 'package:balsam/cart/Order_details.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import '../CommonWidgets/ButtonWidget.dart';
@@ -96,7 +97,7 @@ class LoginScreen extends StatelessWidget {
             ButtonWidget(
                 onPressed: () async {
                   Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => HomeScreen()));
+                      MaterialPageRoute(builder: (context) => OrderDetails()));
                 },
                 color: blueColor,
                 text: 'SIGN IN'),

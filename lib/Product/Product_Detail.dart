@@ -45,8 +45,8 @@ class ProductDetail extends StatelessWidget {
             Row(
               children: [
                 Container(
-                  height: 250,
-                  width: 370,
+                  height: MediaQuery.of(context).size.height * 0.25,
+                  width: MediaQuery.of(context).size.width * 0.85,
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
@@ -100,12 +100,16 @@ class ProductDetail extends StatelessWidget {
                         color: Colors.black,
                         fontSize: 18),
                   ),
-                  VerticalSizeBox(width: 80),
+                  SizedBox(
+                    width: MediaQuery.of(context).size.width * 0.2,
+                  ),
                   Text(
                     'Content',
                     style: TextStyle(color: Colors.black, fontSize: 18),
                   ),
-                  VerticalSizeBox(width: 80),
+                  SizedBox(
+                    width: MediaQuery.of(context).size.width * 0.1,
+                  ),
                   Text(
                     'Reviews',
                     style: TextStyle(color: Colors.black, fontSize: 18),
@@ -165,7 +169,7 @@ class ProductDetail extends StatelessWidget {
                 ),
                 VerticalSizeBox(width: 10),
                 SizedBox(
-                  width: 330,
+                  width: MediaQuery.of(context).size.width * 0.75,
                   child: ButtonWidget(
                       onPressed: () async {
                         Navigator.push(

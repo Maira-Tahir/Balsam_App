@@ -1,6 +1,6 @@
 import 'package:balsam/AppUtils/ColorConstants.dart';
 import 'package:balsam/HomePage/HomeScreen.dart';
-import 'package:balsam/Screens/LoginScreen.dart';
+import 'package:balsam/Screens/VerificationCode.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import '../CommonWidgets/ButtonWidget.dart';
@@ -27,8 +27,14 @@ class ChangePassword extends StatelessWidget {
               height: 50,
             ),
             Row(
-              children: const [
-                Icon(CupertinoIcons.arrow_left),
+              children: [
+                InkWell(
+                    onTap: () => Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => VerificationCode()),
+                        ),
+                    child: Icon(CupertinoIcons.arrow_left)),
                 Padding(
                   padding: EdgeInsets.only(left: 75),
                   child: Text(

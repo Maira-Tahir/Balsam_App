@@ -1,11 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:balsam/AppUtils/utils.dart';
 
 Widget BoldText(String text) {
   return Text(
     text,
-    style: TextStyle(fontSize: 15, fontWeight: FontWeight.w700),
+    style: const TextStyle(fontSize: 15, fontWeight: FontWeight.w700),
   );
 }
 
@@ -29,4 +28,12 @@ Widget grayText2(String text) {
     text,
     style: TextStyle(fontSize: 15, color: Colors.grey),
   );
+}
+
+double getScreenWidth(BuildContext context) {
+  return MediaQuery.of(context).size.width;
+}
+
+double getScreenHeight(BuildContext context) {
+  return MediaQuery.of(context).size.height;
 }

@@ -36,7 +36,7 @@ class _trackorderState extends State<trackorder> {
                   context,
                   MaterialPageRoute(builder: (context) => HomeScreen()),
                 ),
-                child: Icon(
+                child: const Icon(
                   Icons.home_outlined,
                   color: Colors.grey,
                 ),
@@ -51,9 +51,9 @@ class _trackorderState extends State<trackorder> {
               icon: InkWell(
                 onTap: () => Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => Dr_page()),
+                  MaterialPageRoute(builder: (context) => const Dr_page()),
                 ),
-                child: Icon(
+                child: const Icon(
                   Icons.business_center_outlined,
                   color: Colors.grey,
                 ),
@@ -70,7 +70,7 @@ class _trackorderState extends State<trackorder> {
                   context,
                   MaterialPageRoute(builder: (context) => Myappointment()),
                 ),
-                child: Icon(
+                child: const Icon(
                   Icons.calendar_month_outlined,
                   color: Colors.grey,
                 ),
@@ -89,7 +89,7 @@ class _trackorderState extends State<trackorder> {
                   context,
                   MaterialPageRoute(builder: (context) => Profile()),
                 ),
-                child: Icon(
+                child: const Icon(
                   Icons.grid_view_outlined,
                   color: Colors.grey,
                 ),
@@ -114,9 +114,9 @@ class _trackorderState extends State<trackorder> {
                       onTap: () => Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => menubutton()),
+                                builder: (context) => const menubutton()),
                           ),
-                      child: Icon(Icons.menu)),
+                      child: const Icon(Icons.menu)),
                 ),
                 HorizontalSizeBox(height: 20),
                 ListTile(
@@ -126,34 +126,36 @@ class _trackorderState extends State<trackorder> {
                             MaterialPageRoute(
                                 builder: (context) => HomeScreen()),
                           ),
-                      child: Icon(Icons.arrow_back, color: Colors.black)),
-                  title: Text('Track Order',
+                      child: const Icon(Icons.arrow_back, color: Colors.black)),
+                  title: const Text('Track Order',
                       style: TextStyle(
                           color: Colors.black,
                           fontWeight: FontWeight.bold,
                           fontSize: 20)),
-                  trailing: Icon(Icons.shopping_cart, color: Colors.black),
+                  trailing:
+                      const Icon(Icons.shopping_cart, color: Colors.black),
                 ),
                 SizedBox(
                   child: ListView.builder(
-                    physics: NeverScrollableScrollPhysics(),
+                    physics: const NeverScrollableScrollPhysics(),
                     shrinkWrap: true,
                     itemCount: 3,
                     itemBuilder: (context, index) {
                       return ExpansionTile(
                         title: BoldText("#7047983"),
-                        trailing: Text('Details'),
+                        trailing: const Text('Details'),
                         collapsedTextColor: Colors.black,
                         textColor: Colors.black,
-                        childrenPadding: EdgeInsets.symmetric(horizontal: 20),
+                        childrenPadding:
+                            const EdgeInsets.symmetric(horizontal: 20),
                         children: [
                           Container(
                             decoration: BoxDecoration(
                               color: Colors.white,
                               borderRadius: BorderRadius.circular(10),
                             ),
-                            margin: EdgeInsets.symmetric(vertical: 10),
-                            padding: EdgeInsets.all(6),
+                            margin: const EdgeInsets.symmetric(vertical: 10),
+                            padding: const EdgeInsets.all(6),
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
@@ -161,12 +163,12 @@ class _trackorderState extends State<trackorder> {
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     BoldText("Wooden Coffee Table"),
-                                    SizedBox(
+                                    const SizedBox(
                                       height: 5,
                                     ),
                                     Row(
                                       children: [
-                                        Icon(
+                                        const Icon(
                                           Icons.star,
                                           color: Colors.amber,
                                           size: 15,
@@ -174,7 +176,7 @@ class _trackorderState extends State<trackorder> {
                                         grayText("   (426 reviews)"),
                                       ],
                                     ),
-                                    SizedBox(
+                                    const SizedBox(
                                       height: 5,
                                     ),
                                     redText("\$274.00"),
@@ -182,7 +184,7 @@ class _trackorderState extends State<trackorder> {
                                 ),
                                 Column(
                                   children: [
-                                    Text(
+                                    const Text(
                                       '2',
                                       style: TextStyle(fontSize: 18),
                                     ),
@@ -203,20 +205,20 @@ class _trackorderState extends State<trackorder> {
                           ),
                           ExpansionTile(
                             title: BoldText('Info Details'),
-                            trailing: Text('Show'),
+                            trailing: const Text('Show'),
                             textColor: Colors.black,
                             childrenPadding:
-                                EdgeInsets.symmetric(horizontal: 25),
+                                const EdgeInsets.symmetric(horizontal: 25),
                             children: [
                               Row(
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceBetween,
                                 children: [
                                   grayText2('Number: '),
-                                  Text("701798544"),
+                                  const Text("701798544"),
                                 ],
                               ),
-                              SizedBox(
+                              const SizedBox(
                                 height: 15,
                               ),
                               Row(
@@ -224,10 +226,10 @@ class _trackorderState extends State<trackorder> {
                                     MainAxisAlignment.spaceBetween,
                                 children: [
                                   grayText2('Date: '),
-                                  Text("22 Oct 2021 at 10:39"),
+                                  const Text("22 Oct 2021 at 10:39"),
                                 ],
                               ),
-                              SizedBox(
+                              const SizedBox(
                                 height: 15,
                               ),
                               Row(
@@ -235,10 +237,10 @@ class _trackorderState extends State<trackorder> {
                                     MainAxisAlignment.spaceBetween,
                                 children: [
                                   grayText2('Status: '),
-                                  Text("Complete"),
+                                  const Text("Complete"),
                                 ],
                               ),
-                              SizedBox(
+                              const SizedBox(
                                 height: 15,
                               ),
                               Row(
@@ -246,10 +248,10 @@ class _trackorderState extends State<trackorder> {
                                     MainAxisAlignment.spaceBetween,
                                 children: [
                                   grayText2('Delivery: '),
-                                  Text("25 Oct 2021"),
+                                  const Text("25 Oct 2021"),
                                 ],
                               ),
-                              SizedBox(
+                              const SizedBox(
                                 height: 15,
                               ),
                               Row(
@@ -260,7 +262,7 @@ class _trackorderState extends State<trackorder> {
                                   redText("\$274.00"),
                                 ],
                               ),
-                              SizedBox(
+                              const SizedBox(
                                 height: 15,
                               ),
                             ],
@@ -270,7 +272,7 @@ class _trackorderState extends State<trackorder> {
                     },
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 20,
                 ),
                 InkWell(
@@ -281,8 +283,8 @@ class _trackorderState extends State<trackorder> {
                   child: Container(
                     height: 90,
                     width: 280,
-                    color: Color(0xffEFEAE4),
-                    padding: EdgeInsets.all(20),
+                    color: const Color(0xffEFEAE4),
+                    padding: const EdgeInsets.all(20),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
@@ -290,7 +292,7 @@ class _trackorderState extends State<trackorder> {
                           mainAxisAlignment: MainAxisAlignment.spaceAround,
                           children: [
                             BoldText('Have a problem?'),
-                            Text('tufg weituu etiuei'),
+                            const Text('tufg weituu etiuei'),
                           ],
                         ),
                         Container(
@@ -300,7 +302,7 @@ class _trackorderState extends State<trackorder> {
                               border: Border.all(
                             color: Colors.black,
                           )),
-                          child: Center(child: Text('Get Help')),
+                          child: const Center(child: Text('Get Help')),
                         )
                       ],
                     ),

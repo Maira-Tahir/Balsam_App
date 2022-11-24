@@ -53,7 +53,7 @@ class HomeScreenState extends State<HomeScreen> {
                   context,
                   MaterialPageRoute(builder: (context) => HomeScreen()),
                 ),
-                child: Icon(
+                child: const Icon(
                   Icons.home_outlined,
                   color: Colors.grey,
                 ),
@@ -68,9 +68,9 @@ class HomeScreenState extends State<HomeScreen> {
               icon: InkWell(
                 onTap: () => Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => Dr_page()),
+                  MaterialPageRoute(builder: (context) => const Dr_page()),
                 ),
-                child: Icon(
+                child: const Icon(
                   Icons.business_center_outlined,
                   color: Colors.grey,
                 ),
@@ -87,7 +87,7 @@ class HomeScreenState extends State<HomeScreen> {
                   context,
                   MaterialPageRoute(builder: (context) => Myappointment()),
                 ),
-                child: Icon(
+                child: const Icon(
                   Icons.calendar_month_outlined,
                   color: Colors.grey,
                 ),
@@ -106,7 +106,7 @@ class HomeScreenState extends State<HomeScreen> {
                   context,
                   MaterialPageRoute(builder: (context) => Profile()),
                 ),
-                child: Icon(
+                child: const Icon(
                   Icons.grid_view_outlined,
                   color: Colors.grey,
                 ),
@@ -130,25 +130,25 @@ class HomeScreenState extends State<HomeScreen> {
                       onTap: () => Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => menubutton()),
+                                builder: (context) => const menubutton()),
                           ),
-                      child: Icon(Icons.menu)),
+                      child: const Icon(Icons.menu)),
                 ),
                 HorizontalSizeBox(height: 20),
                 Row(
                   children: [
                     Container(
-                      height: 100,
-                      width: 100,
+                      height: MediaQuery.of(context).size.height * 0.15,
+                      width: MediaQuery.of(context).size.width * 0.22,
                       decoration: BoxDecoration(
                         shape: BoxShape.circle,
                         border: Border.all(color: Colors.red, width: 2),
                       ),
-                      padding: EdgeInsets.all(10),
+                      padding: const EdgeInsets.all(10),
                       child: Container(
                         height: 100,
                         width: 100,
-                        decoration: BoxDecoration(
+                        decoration: const BoxDecoration(
                             shape: BoxShape.circle, color: Colors.black),
                       ),
                     ),
@@ -168,21 +168,21 @@ class HomeScreenState extends State<HomeScreen> {
                         ),
                       ],
                     ),
-                    Spacer(),
+                    const Spacer(),
                     InkWell(
                         onTap: () => Navigator.push(
                               context,
                               MaterialPageRoute(builder: (context) => notify()),
                             ),
-                        child: Icon(Icons.notifications)),
+                        child: const Icon(Icons.notifications)),
                     VerticalSizeBox(width: 5),
                     InkWell(
                         onTap: () => Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => cartscreen()),
+                                  builder: (context) => const cartscreen()),
                             ),
-                        child: Icon(Icons.shopping_cart)),
+                        child: const Icon(Icons.shopping_cart)),
                     VerticalSizeBox(width: 5),
                     InkWell(
                         onTap: () => Navigator.push(
@@ -190,7 +190,7 @@ class HomeScreenState extends State<HomeScreen> {
                               MaterialPageRoute(
                                   builder: (context) => LoginScreen()),
                             ),
-                        child: Icon(Icons.tv_outlined)),
+                        child: const Icon(Icons.tv_outlined)),
                   ],
                 ),
                 HorizontalSizeBox(height: 10),
@@ -205,7 +205,8 @@ class HomeScreenState extends State<HomeScreen> {
                         color: Colors.grey.withOpacity(0.1),
                         spreadRadius: 5,
                         blurRadius: 7,
-                        offset: Offset(0, 0), // changes position of shadow
+                        offset:
+                            const Offset(0, 0), // changes position of shadow
                       ),
                     ],
                   ),
@@ -218,7 +219,7 @@ class HomeScreenState extends State<HomeScreen> {
                           MaterialPageRoute(
                               builder: (context) => SearchScreen()),
                         ),
-                        child: Icon(
+                        child: const Icon(
                           Icons.search,
                         ),
                       ),
@@ -236,7 +237,7 @@ class HomeScreenState extends State<HomeScreen> {
                         decoration: BoxDecoration(
                             shape: BoxShape.circle,
                             color: Colors.grey.withOpacity(0.4)),
-                        child: Icon(Icons.close),
+                        child: const Icon(Icons.close),
                       ),
                       VerticalSizeBox(width: 10),
                       InkWell(
@@ -252,7 +253,7 @@ class HomeScreenState extends State<HomeScreen> {
                             color: Colors.red,
                             borderRadius: BorderRadius.circular(20),
                           ),
-                          child: Icon(
+                          child: const Icon(
                             Icons.filter_list,
                             color: Colors.white,
                           ),
@@ -301,11 +302,11 @@ class HomeScreenState extends State<HomeScreen> {
                       ),
                       VerticalSizeBox(width: 20),
                       Container(
-                        margin: EdgeInsets.only(top: 30),
+                        margin: const EdgeInsets.only(top: 30),
                         width: MediaQuery.of(context).size.width - 200,
                         child: Column(
                           children: [
-                            Text(
+                            const Text(
                               '30% discount on all home decoration product',
                               textAlign: TextAlign.center,
                               style: TextStyle(
@@ -315,8 +316,8 @@ class HomeScreenState extends State<HomeScreen> {
                             ),
                             HorizontalSizeBox(height: 30),
                             Container(
-                              height: 50,
-                              width: MediaQuery.of(context).size.width,
+                              height: MediaQuery.of(context).size.height * 0.05,
+                              width: MediaQuery.of(context).size.width * 0.3,
                               decoration: BoxDecoration(
                                 color: Colors.redAccent,
                                 borderRadius: BorderRadius.circular(50),
@@ -328,7 +329,7 @@ class HomeScreenState extends State<HomeScreen> {
                                   MaterialPageRoute(
                                       builder: (context) => latestoffer()),
                                 ),
-                                child: Text(
+                                child: const Text(
                                   'Get Now',
                                   textAlign: TextAlign.center,
                                   style: TextStyle(
@@ -347,20 +348,20 @@ class HomeScreenState extends State<HomeScreen> {
                 HorizontalSizeBox(height: 10),
                 Row(
                   children: [
-                    Text(
+                    const Text(
                       'Upcoming Schedule',
                       style: TextStyle(
                           fontSize: 18,
                           fontWeight: FontWeight.w500,
                           color: Colors.black),
                     ),
-                    Spacer(),
+                    const Spacer(),
                     InkWell(
                       onTap: () => Navigator.push(
                         context,
                         MaterialPageRoute(builder: (context) => Categories()),
                       ),
-                      child: Text(
+                      child: const Text(
                         'See All',
                         style: TextStyle(
                             fontSize: 16,
@@ -375,7 +376,7 @@ class HomeScreenState extends State<HomeScreen> {
                   onTap: () => Navigator.push(
                     context,
                     MaterialPageRoute(
-                        builder: (context) => SingleApponitment()),
+                        builder: (context) => const SingleApponitment()),
                   ),
                   child: Container(
                     height: 200,
@@ -386,11 +387,11 @@ class HomeScreenState extends State<HomeScreen> {
                     child: Row(
                       children: [
                         Container(
-                          margin: EdgeInsets.only(top: 30, left: 20),
+                          margin: const EdgeInsets.only(top: 30, left: 20),
                           width: MediaQuery.of(context).size.width - 210,
                           child: Column(
                             children: [
-                              Text(
+                              const Text(
                                 'Ronnie C. Torres',
                                 style: TextStyle(
                                     fontSize: 18,
@@ -398,7 +399,7 @@ class HomeScreenState extends State<HomeScreen> {
                                     color: Colors.white),
                               ),
                               HorizontalSizeBox(height: 10),
-                              Text(
+                              const Text(
                                 'Dermatologist, London',
                                 style: TextStyle(
                                     fontSize: 16,
@@ -406,7 +407,7 @@ class HomeScreenState extends State<HomeScreen> {
                                     color: Colors.white),
                               ),
                               HorizontalSizeBox(height: 30),
-                              Text(
+                              const Text(
                                 'Dec 02, 09:00AM',
                                 style: TextStyle(
                                     fontSize: 16,
@@ -419,7 +420,7 @@ class HomeScreenState extends State<HomeScreen> {
                         Container(
                           height: 200,
                           width: 150,
-                          decoration: BoxDecoration(
+                          decoration: const BoxDecoration(
                             color: Colors.white,
                             //borderRadius: BorderRadius.circular(20),
                           ),
@@ -429,7 +430,7 @@ class HomeScreenState extends State<HomeScreen> {
                             decoration: BoxDecoration(
                                 color: Colors.grey.withAlpha(50),
                                 //borderRadius: BorderRadius.circular(20),
-                                borderRadius: BorderRadius.only(
+                                borderRadius: const BorderRadius.only(
                                     bottomRight: Radius.circular(20))),
                           ),
                         ),
@@ -440,14 +441,14 @@ class HomeScreenState extends State<HomeScreen> {
                 HorizontalSizeBox(height: 10),
                 Row(
                   children: [
-                    Text(
+                    const Text(
                       'Main Category',
                       style: TextStyle(
                           fontSize: 18,
                           fontWeight: FontWeight.w500,
                           color: Colors.black),
                     ),
-                    Spacer(),
+                    const Spacer(),
                     InkWell(
                       onTap: () => Navigator.push(
                         context,
@@ -458,7 +459,7 @@ class HomeScreenState extends State<HomeScreen> {
                           context,
                           MaterialPageRoute(builder: (context) => Category()),
                         ),
-                        child: Text(
+                        child: const Text(
                           'See All',
                           style: TextStyle(
                               fontSize: 16,
@@ -473,14 +474,14 @@ class HomeScreenState extends State<HomeScreen> {
                 InkWell(
                   onTap: () => Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => Dr_page()),
+                    MaterialPageRoute(builder: (context) => const Dr_page()),
                   ),
                   child: Container(
                     height: 120,
                     child: ListView.builder(
                         itemCount: 3,
                         scrollDirection: Axis.horizontal,
-                        physics: NeverScrollableScrollPhysics(),
+                        physics: const NeverScrollableScrollPhysics(),
                         shrinkWrap: true,
                         itemBuilder: (context, index) {
                           return Container(
@@ -498,7 +499,7 @@ class HomeScreenState extends State<HomeScreen> {
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
-                                Text(
+                                const Text(
                                   'Cardiology',
                                   style: TextStyle(
                                       fontSize: 16,
@@ -514,20 +515,21 @@ class HomeScreenState extends State<HomeScreen> {
                 HorizontalSizeBox(height: 10),
                 Row(
                   children: [
-                    Text(
+                    const Text(
                       'Top Doctors',
                       style: TextStyle(
                           fontSize: 18,
                           fontWeight: FontWeight.w500,
                           color: Colors.black),
                     ),
-                    Spacer(),
+                    const Spacer(),
                     InkWell(
                       onTap: () => Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => Dr_page()),
+                        MaterialPageRoute(
+                            builder: (context) => const Dr_page()),
                       ),
-                      child: Text(
+                      child: const Text(
                         'See All',
                         style: TextStyle(
                             fontSize: 16,
@@ -570,7 +572,7 @@ class HomeScreenState extends State<HomeScreen> {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   HorizontalSizeBox(height: 20),
-                                  Text(
+                                  const Text(
                                     'Dr. Leslie R. Bean',
                                     style: TextStyle(
                                         fontSize: 18,
@@ -578,7 +580,7 @@ class HomeScreenState extends State<HomeScreen> {
                                         color: Colors.black),
                                   ),
                                   HorizontalSizeBox(height: 5),
-                                  Text(
+                                  const Text(
                                     'Heart Surgon',
                                     style: TextStyle(
                                         fontSize: 14,
@@ -595,7 +597,7 @@ class HomeScreenState extends State<HomeScreen> {
                                         allowHalfRating: true,
                                         itemCount: 5,
                                         itemSize: 25,
-                                        itemBuilder: (context, _) => Icon(
+                                        itemBuilder: (context, _) => const Icon(
                                           Icons.star,
                                           color: Colors.amber,
                                         ),
@@ -604,7 +606,7 @@ class HomeScreenState extends State<HomeScreen> {
                                         },
                                       ),
                                       VerticalSizeBox(width: 10),
-                                      Text(
+                                      const Text(
                                         '(348)',
                                         style: TextStyle(
                                             fontSize: 14,
@@ -623,20 +625,20 @@ class HomeScreenState extends State<HomeScreen> {
                 HorizontalSizeBox(height: 10),
                 Row(
                   children: [
-                    Text(
+                    const Text(
                       'Services Category',
                       style: TextStyle(
                           fontSize: 18,
                           fontWeight: FontWeight.w500,
                           color: Colors.black),
                     ),
-                    Spacer(),
+                    const Spacer(),
                     InkWell(
                       onTap: () => Navigator.push(
                         context,
                         MaterialPageRoute(builder: (context) => Category()),
                       ),
-                      child: Text(
+                      child: const Text(
                         'See All',
                         style: TextStyle(
                             fontSize: 16,
@@ -657,7 +659,7 @@ class HomeScreenState extends State<HomeScreen> {
                     child: ListView.builder(
                         itemCount: 3,
                         scrollDirection: Axis.horizontal,
-                        physics: NeverScrollableScrollPhysics(),
+                        physics: const NeverScrollableScrollPhysics(),
                         shrinkWrap: true,
                         itemBuilder: (context, index) {
                           return Container(
@@ -675,7 +677,7 @@ class HomeScreenState extends State<HomeScreen> {
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
-                                Text(
+                                const Text(
                                   'Laser',
                                   style: TextStyle(
                                       fontSize: 16,
@@ -691,21 +693,21 @@ class HomeScreenState extends State<HomeScreen> {
                 HorizontalSizeBox(height: 10),
                 Row(
                   children: [
-                    Text(
+                    const Text(
                       'Popular Package',
                       style: TextStyle(
                           fontSize: 18,
                           fontWeight: FontWeight.w500,
                           color: Colors.black),
                     ),
-                    Spacer(),
+                    const Spacer(),
                     InkWell(
                       onTap: () => Navigator.push(
                         context,
                         MaterialPageRoute(
                             builder: (context) => PopularService()),
                       ),
-                      child: Text(
+                      child: const Text(
                         'See All',
                         style: TextStyle(
                             fontSize: 16,
@@ -725,7 +727,7 @@ class HomeScreenState extends State<HomeScreen> {
                       crossAxisSpacing: 0.0,
                       mainAxisSpacing: 0.0,
                     ),
-                    physics: NeverScrollableScrollPhysics(),
+                    physics: const NeverScrollableScrollPhysics(),
                     itemBuilder: (context, index) {
                       return InkWell(
                         onTap: () => Navigator.push(
@@ -744,8 +746,8 @@ class HomeScreenState extends State<HomeScreen> {
                                 color: Colors.grey.withOpacity(0.1),
                                 spreadRadius: 5,
                                 blurRadius: 7,
-                                offset:
-                                    Offset(0, 0), // changes position of shadow
+                                offset: const Offset(
+                                    0, 0), // changes position of shadow
                               ),
                             ],
                           ),
@@ -753,7 +755,7 @@ class HomeScreenState extends State<HomeScreen> {
                             mainAxisAlignment: MainAxisAlignment.start,
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Align(
+                              const Align(
                                 alignment: Alignment.centerRight,
                                 child: Icon(
                                   Icons.favorite,
@@ -770,7 +772,7 @@ class HomeScreenState extends State<HomeScreen> {
                                 ),
                               ),
                               HorizontalSizeBox(height: 10),
-                              Text(
+                              const Text(
                                 'Headphone Holder',
                                 maxLines: 1,
                                 overflow: TextOverflow.ellipsis,
@@ -781,11 +783,11 @@ class HomeScreenState extends State<HomeScreen> {
                               ),
                               Row(
                                 children: [
-                                  Icon(
+                                  const Icon(
                                     Icons.star,
                                     color: Colors.yellow,
                                   ),
-                                  Text(
+                                  const Text(
                                     '(348 reviews)',
                                     style: TextStyle(
                                         fontSize: 14,
@@ -795,7 +797,7 @@ class HomeScreenState extends State<HomeScreen> {
                                 ],
                               ),
                               //HorizontalSizeBox(height: 5),
-                              Text(
+                              const Text(
                                 '\$35.90',
                                 style: TextStyle(
                                     fontSize: 20,
@@ -810,20 +812,20 @@ class HomeScreenState extends State<HomeScreen> {
                 HorizontalSizeBox(height: 10),
                 Row(
                   children: [
-                    Text(
+                    const Text(
                       'Lastest Offers',
                       style: TextStyle(
                           fontSize: 18,
                           fontWeight: FontWeight.w500,
                           color: Colors.black),
                     ),
-                    Spacer(),
+                    const Spacer(),
                     InkWell(
                       onTap: () => Navigator.push(
                         context,
                         MaterialPageRoute(builder: (context) => Recommanded()),
                       ),
-                      child: Text(
+                      child: const Text(
                         'See All',
                         style: TextStyle(
                             fontSize: 16,
@@ -846,9 +848,10 @@ class HomeScreenState extends State<HomeScreen> {
                               builder: (context) => ProductDetail()),
                         ),
                         child: Container(
-                          height: 120,
+                          height: MediaQuery.of(context).size.height * 0.15,
+                          width: MediaQuery.of(context).size.width * 0.25,
                           padding: const EdgeInsets.all(0),
-                          margin: EdgeInsets.only(bottom: 10),
+                          margin: const EdgeInsets.only(bottom: 10),
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(10),
                             color: Colors.white,
@@ -857,16 +860,16 @@ class HomeScreenState extends State<HomeScreen> {
                                 color: Colors.grey.withOpacity(0.1),
                                 spreadRadius: 5,
                                 blurRadius: 7,
-                                offset:
-                                    Offset(0, 0), // changes position of shadow
+                                offset: const Offset(
+                                    0, 0), // changes position of shadow
                               ),
                             ],
                           ),
                           child: Row(
                             children: [
                               Container(
-                                width: 100,
-                                margin: EdgeInsets.all(10),
+                                width: MediaQuery.of(context).size.width * 0.25,
+                                margin: const EdgeInsets.all(10),
                                 decoration: BoxDecoration(
                                   color: Colors.grey.withAlpha(50),
                                   borderRadius: BorderRadius.circular(10),
@@ -875,39 +878,43 @@ class HomeScreenState extends State<HomeScreen> {
                               Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  HorizontalSizeBox(height: 30),
                                   Row(
                                     mainAxisAlignment:
                                         MainAxisAlignment.spaceBetween,
                                     children: [
-                                      Text(
+                                      const Text(
                                         'Headphone Holder',
                                         style: TextStyle(
                                             fontSize: 14,
                                             fontWeight: FontWeight.w500,
                                             color: Colors.black),
                                       ),
-                                      VerticalSizeBox(
-                                          width: MediaQuery.of(context)
+                                      SizedBox(
+                                          height: MediaQuery.of(context)
                                                   .size
-                                                  .width -
-                                              380),
-                                      Text(
+                                                  .height *
+                                              0.10
+                                          // child: VerticalSizeBox(
+                                          //     width: MediaQuery.of(context)
+                                          //             .size
+                                          //             .width -
+                                          //         380),
+                                          ),
+                                      const Text(
                                         '(348)',
                                         style: TextStyle(
                                             fontSize: 14,
                                             fontWeight: FontWeight.w400,
                                             color: Colors.grey),
                                       ),
-                                      Icon(
+                                      const Icon(
                                         Icons.star,
                                         color: Colors.yellow,
                                       ),
                                       VerticalSizeBox(width: 10),
                                     ],
                                   ),
-                                  HorizontalSizeBox(height: 10),
-                                  Text(
+                                  const Text(
                                     '\$35.90',
                                     style: TextStyle(
                                         fontSize: 20,
@@ -924,20 +931,26 @@ class HomeScreenState extends State<HomeScreen> {
                 HorizontalSizeBox(height: 10),
                 Row(
                   children: [
-                    Text(
+                    const Text(
                       'Lastest Packages',
                       style: TextStyle(
                           fontSize: 18,
                           fontWeight: FontWeight.w500,
                           color: Colors.black),
                     ),
-                    Spacer(),
-                    Text(
-                      'See All',
-                      style: TextStyle(
-                          fontSize: 16,
-                          fontWeight: FontWeight.w500,
-                          color: Colors.redAccent),
+                    const Spacer(),
+                    InkWell(
+                      onTap: () => Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => Recommanded()),
+                      ),
+                      child: const Text(
+                        'See All',
+                        style: TextStyle(
+                            fontSize: 16,
+                            fontWeight: FontWeight.w500,
+                            color: Colors.redAccent),
+                      ),
                     ),
                   ],
                 ),
@@ -954,9 +967,10 @@ class HomeScreenState extends State<HomeScreen> {
                               builder: (context) => ProductDetail()),
                         ),
                         child: Container(
-                          height: 120,
+                          height: MediaQuery.of(context).size.height * 0.15,
+                          width: MediaQuery.of(context).size.width * 0.25,
                           padding: const EdgeInsets.all(0),
-                          margin: EdgeInsets.only(bottom: 10),
+                          margin: const EdgeInsets.only(bottom: 10),
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(10),
                             color: Colors.white,
@@ -965,16 +979,16 @@ class HomeScreenState extends State<HomeScreen> {
                                 color: Colors.grey.withOpacity(0.1),
                                 spreadRadius: 5,
                                 blurRadius: 7,
-                                offset:
-                                    Offset(0, 0), // changes position of shadow
+                                offset: const Offset(
+                                    0, 0), // changes position of shadow
                               ),
                             ],
                           ),
                           child: Row(
                             children: [
                               Container(
-                                width: 100,
-                                margin: EdgeInsets.all(10),
+                                width: MediaQuery.of(context).size.width * 0.25,
+                                margin: const EdgeInsets.all(10),
                                 decoration: BoxDecoration(
                                   color: Colors.grey.withAlpha(50),
                                   borderRadius: BorderRadius.circular(10),
@@ -983,39 +997,43 @@ class HomeScreenState extends State<HomeScreen> {
                               Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  HorizontalSizeBox(height: 30),
                                   Row(
                                     mainAxisAlignment:
                                         MainAxisAlignment.spaceBetween,
                                     children: [
-                                      Text(
+                                      const Text(
                                         'Headphone Holder',
                                         style: TextStyle(
                                             fontSize: 14,
                                             fontWeight: FontWeight.w500,
                                             color: Colors.black),
                                       ),
-                                      VerticalSizeBox(
-                                          width: MediaQuery.of(context)
+                                      SizedBox(
+                                          height: MediaQuery.of(context)
                                                   .size
-                                                  .width -
-                                              380),
-                                      Text(
+                                                  .height *
+                                              0.10
+                                          // child: VerticalSizeBox(
+                                          //     width: MediaQuery.of(context)
+                                          //             .size
+                                          //             .width -
+                                          //         380),
+                                          ),
+                                      const Text(
                                         '(348)',
                                         style: TextStyle(
                                             fontSize: 14,
                                             fontWeight: FontWeight.w400,
                                             color: Colors.grey),
                                       ),
-                                      Icon(
+                                      const Icon(
                                         Icons.star,
                                         color: Colors.yellow,
                                       ),
                                       VerticalSizeBox(width: 10),
                                     ],
                                   ),
-                                  HorizontalSizeBox(height: 10),
-                                  Text(
+                                  const Text(
                                     '\$35.90',
                                     style: TextStyle(
                                         fontSize: 20,

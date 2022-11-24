@@ -1,4 +1,5 @@
 import 'package:balsam/AppUtils/ColorConstants.dart';
+import 'package:balsam/HomePage/HomeScreen.dart';
 import 'package:balsam/profile/FAQS.dart';
 import 'package:balsam/profile/Help_Centre.dart';
 import 'package:balsam/profile/Myappointment.dart';
@@ -25,7 +26,12 @@ class Profile extends StatelessWidget {
               height: 20,
             ),
             ListTile(
-              leading: Icon(CupertinoIcons.arrow_left, color: Colors.black),
+              leading: InkWell(
+                  onTap: () => Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => HomeScreen()),
+                      ),
+                  child: Icon(CupertinoIcons.arrow_left, color: Colors.black)),
               title: Text('Profile',
                   style: TextStyle(
                       fontWeight: FontWeight.bold,
@@ -68,7 +74,7 @@ class Profile extends StatelessWidget {
                     color: Color(0xFFE9F4F9),
                   ),
                   height: 60,
-                  width: 270,
+                  width: 240,
                   child: const ListTile(
                     title: Text("Favouriate Doctors",
                         style: TextStyle(
@@ -79,7 +85,9 @@ class Profile extends StatelessWidget {
                         color: Colors.black),
                   ),
                 ),
-                const SizedBox(width: 30),
+                SizedBox(
+                  width: MediaQuery.of(context).size.width * 0.1,
+                ),
                 SwitchScreen(),
               ],
             ),
