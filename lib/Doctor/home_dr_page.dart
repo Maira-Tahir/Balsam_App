@@ -29,9 +29,9 @@ class _HomePage_APPState extends State<HomePage_APP> {
                   context,
                   MaterialPageRoute(builder: (context) => HomeScreen()),
                 ),
-            child: Icon(Icons.arrow_back, color: Colors.black)),
+            child: const Icon(Icons.arrow_back, color: Colors.black)),
         elevation: 0.0,
-        title: Text('Search Doctors',
+        title: const Text('Search Doctors',
             style: TextStyle(color: Colors.black, fontSize: 24)),
       ),
       bottomNavigationBar: BottomNavyBar(
@@ -47,7 +47,7 @@ class _HomePage_APPState extends State<HomePage_APP> {
                 context,
                 MaterialPageRoute(builder: (context) => HomeScreen()),
               ),
-              child: Icon(
+              child: const Icon(
                 Icons.home_outlined,
                 color: Colors.grey,
               ),
@@ -62,9 +62,9 @@ class _HomePage_APPState extends State<HomePage_APP> {
             icon: InkWell(
               onTap: () => Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => Dr_page()),
+                MaterialPageRoute(builder: (context) => const Dr_page()),
               ),
-              child: Icon(
+              child: const Icon(
                 Icons.business_center_outlined,
                 color: Colors.grey,
               ),
@@ -81,7 +81,7 @@ class _HomePage_APPState extends State<HomePage_APP> {
                 context,
                 MaterialPageRoute(builder: (context) => Myappointment()),
               ),
-              child: Icon(
+              child: const Icon(
                 Icons.calendar_month_outlined,
                 color: Colors.grey,
               ),
@@ -100,7 +100,7 @@ class _HomePage_APPState extends State<HomePage_APP> {
                 context,
                 MaterialPageRoute(builder: (context) => Profile()),
               ),
-              child: Icon(
+              child: const Icon(
                 Icons.grid_view_outlined,
                 color: Colors.grey,
               ),
@@ -144,16 +144,16 @@ class _HomePage_APPState extends State<HomePage_APP> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text(
+                  const Text(
                     'Top Doctors',
                     style: TextStyle(fontSize: 20, fontWeight: FontWeight.w400),
                   ),
                   InkWell(
                     onTap: () => Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => Dr_page()),
+                      MaterialPageRoute(builder: (context) => const Dr_page()),
                     ),
-                    child: Text(
+                    child: const Text(
                       'See ALL',
                       style: TextStyle(
                           fontSize: 15,

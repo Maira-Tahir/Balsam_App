@@ -2,7 +2,6 @@ import 'package:balsam/CommonWidgets/HorizontalSizeBox.dart';
 import 'package:balsam/CommonWidgets/VerticalSizedBox.dart';
 import 'package:balsam/Doctor/appointmentScreen.dart';
 import 'package:balsam/Doctor/doctorspage.dart';
-import 'package:balsam/Doctor/home_dr_page.dart';
 import 'package:balsam/HomePage/Categories.dart';
 import 'package:balsam/HomePage/Search-screen.dart';
 import 'package:balsam/HomePage/category.dart';

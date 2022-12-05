@@ -36,17 +36,14 @@ class _Appoint_ScreenState extends State<Appoint_Screen> {
         centerTitle: true,
         backgroundColor: Colors.transparent,
         elevation: 0,
-        leading: InkWell(
-          onTap: () => Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => Dr_page()),
-          ),
-          child: IconButton(
-            onPressed: () {},
-            icon: const Icon(
-              Icons.arrow_back,
-              color: Colors.black,
-            ),
+        leading: IconButton(
+          onPressed: () {
+            Navigator.push(
+                context, MaterialPageRoute(builder: (context) => Dr_page()));
+          },
+          icon: const Icon(
+            Icons.arrow_back,
+            color: Colors.black,
           ),
         ),
         actions: <Widget>[

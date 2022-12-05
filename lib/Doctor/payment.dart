@@ -96,7 +96,6 @@ class Payment extends StatelessWidget {
                     height: 65,
                     width: 220,
                     decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(15),
                       color: Colors.blue, //
                     ),
                     child: Row(children: [

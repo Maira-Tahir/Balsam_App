@@ -1,10 +1,13 @@
 import 'package:balsam/AppUtils/ColorConstants.dart';
 import 'package:balsam/CommonWidgets/HorizontalSizeBox.dart';
 import 'package:balsam/CommonWidgets/VerticalSizedBox.dart';
+import 'package:balsam/Doctor/doctorspage.dart';
 import 'package:balsam/HomePage/HomeScreen.dart';
 import 'package:balsam/HomePage/Search-screen.dart';
 import 'package:balsam/HomePage/category.dart';
 import 'package:balsam/HomePage/menu_button.dart';
+import 'package:balsam/profile/Myappointment.dart';
+import 'package:balsam/profile/profile_screen.dart';
 import 'package:bottom_navy_bar/bottom_navy_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
@@ -54,7 +57,7 @@ class _SearchState extends State<Search> {
                 context,
                 MaterialPageRoute(builder: (context) => HomeScreen()),
               ),
-              child: Icon(
+              child: const Icon(
                 Icons.home_outlined,
                 color: Colors.grey,
               ),
@@ -66,9 +69,15 @@ class _SearchState extends State<Search> {
             textAlign: TextAlign.center,
           ),
           BottomNavyBarItem(
-            icon: const Icon(
-              Icons.business_center_outlined,
-              color: Colors.grey,
+            icon: InkWell(
+              onTap: () => Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const Dr_page()),
+              ),
+              child: const Icon(
+                Icons.business_center_outlined,
+                color: Colors.grey,
+              ),
             ),
             title: const Text(
               'Doctors',
@@ -77,9 +86,15 @@ class _SearchState extends State<Search> {
             textAlign: TextAlign.center,
           ),
           BottomNavyBarItem(
-            icon: const Icon(
-              Icons.calendar_month_outlined,
-              color: Colors.grey,
+            icon: InkWell(
+              onTap: () => Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => Myappointment()),
+              ),
+              child: const Icon(
+                Icons.calendar_month_outlined,
+                color: Colors.grey,
+              ),
             ),
             title: const Text(
               'Calendar ',
@@ -90,9 +105,15 @@ class _SearchState extends State<Search> {
             textAlign: TextAlign.center,
           ),
           BottomNavyBarItem(
-            icon: const Icon(
-              Icons.grid_view_outlined,
-              color: Colors.grey,
+            icon: InkWell(
+              onTap: () => Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => Profile()),
+              ),
+              child: const Icon(
+                Icons.grid_view_outlined,
+                color: Colors.grey,
+              ),
             ),
             title: const Text(
               'Profile',

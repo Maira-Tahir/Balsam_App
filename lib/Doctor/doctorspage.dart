@@ -24,23 +24,14 @@ class _Dr_pageState extends State<Dr_page> {
         centerTitle: true,
         backgroundColor: Colors.transparent,
         elevation: 0,
-        leading: InkWell(
-          onTap: () => Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => HomeScreen()),
-          ),
-          child: InkWell(
-            onTap: () => Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => HomeScreen()),
-            ),
-            child: IconButton(
-              onPressed: () {},
-              icon: const Icon(
-                Icons.arrow_back,
-                color: Colors.black,
-              ),
-            ),
+        leading: IconButton(
+          onPressed: () {
+            Navigator.push(
+                context, MaterialPageRoute(builder: (context) => HomeScreen()));
+          },
+          icon: const Icon(
+            Icons.arrow_back,
+            color: Colors.black,
           ),
         ),
         title: const Text(
