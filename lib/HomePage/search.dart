@@ -738,51 +738,51 @@ class _SearchState extends State<Search> {
                               borderRadius: BorderRadius.circular(10),
                             ),
                           ),
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              HorizontalSizeBox(height: 30),
-                              Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Text(
-                                    'Headphone Holder',
-                                    style: TextStyle(
-                                        fontSize: 14,
-                                        fontWeight: FontWeight.w500,
-                                        color: Colors.black),
-                                  ),
-                                  VerticalSizeBox(
-                                      width: MediaQuery.of(context).size.width -
-                                          380),
-                                  Text(
-                                    '\$123',
-                                    style: TextStyle(
-                                        fontSize: 14,
-                                        fontWeight: FontWeight.bold,
-                                        color: Colors.blue),
-                                  ),
-                                  VerticalSizeBox(width: 10),
-                                  Icon(
-                                    Icons.star,
-                                    color: Colors.yellow,
-                                  ),
-                                  Text(
-                                    '47',
-                                    style: TextStyle(fontSize: 14),
-                                  ),
-                                ],
-                              ),
-                              HorizontalSizeBox(height: 10),
-                              Text(
-                                'Darma',
-                                style: TextStyle(
-                                  fontSize: 12,
-                                  fontWeight: FontWeight.w500,
+                          SizedBox(
+                            width: MediaQuery.of(context).size.width - 136,
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                HorizontalSizeBox(height: 30),
+                                Row(
+                                  children: [
+                                    Text(
+                                      'Headphone Holder',
+                                      style: TextStyle(
+                                          fontSize: 14,
+                                          fontWeight: FontWeight.w500,
+                                          color: Colors.black),
+                                    ),
+                                    Spacer(),
+                                    Text(
+                                      '\$123',
+                                      style: TextStyle(
+                                          fontSize: 14,
+                                          fontWeight: FontWeight.bold,
+                                          color: Colors.blue),
+                                    ),
+                                    Spacer(),
+                                    Icon(
+                                      Icons.star,
+                                      color: Colors.yellow,
+                                    ),
+                                    Spacer(),
+                                    Text(
+                                      '47',
+                                      style: TextStyle(fontSize: 14),
+                                    ),
+                                  ],
                                 ),
-                              ),
-                            ],
+                                HorizontalSizeBox(height: 10),
+                                Text(
+                                  'Darma',
+                                  style: TextStyle(
+                                    fontSize: 12,
+                                    fontWeight: FontWeight.w500,
+                                  ),
+                                ),
+                              ],
+                            ),
                           ),
                         ],
                       ),

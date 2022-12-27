@@ -183,15 +183,13 @@ class Payment extends StatelessWidget {
                   onPressed: () {
                     showModalBottomSheet(
                       context: context,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(25.0),
+                      ),
+                      backgroundColor: Colors.blue,
                       builder: (BuildContext context) {
-                        return Container(
+                        return SizedBox(
                           height: 300,
-                          decoration: const BoxDecoration(
-                            borderRadius: BorderRadius.only(
-                                topLeft: Radius.circular(25.0),
-                                topRight: Radius.circular(25.0)),
-                            color: Colors.blue,
-                          ),
                           child: Padding(
                             padding: const EdgeInsets.all(12.0),
                             child: Column(
@@ -294,25 +292,6 @@ class Payment extends StatelessWidget {
                         );
                       },
                     );
-                    // showModalBottomSheet(
-                    //     context: context,
-                    //     builder: (builder) {
-                    //       return new Container(
-                    //         height: 350.0,
-                    //         color: Colors
-                    //             .transparent, //could change this to Color(0xFF737373),
-                    //         //so you don't have to change MaterialApp canvasColor
-                    //         child: new Container(
-                    //             decoration: new BoxDecoration(
-                    //                 color: Colors.white,
-                    //                 borderRadius: new BorderRadius.only(
-                    //                     topLeft: const Radius.circular(10.0),
-                    //                     topRight: const Radius.circular(10.0))),
-                    //             child: new Center(
-                    //               child: new Text("This is a modal sheet"),
-                    //             )),
-                    //       );
-                    //     });
                   },
                   icon: Icon(Icons.payment_outlined),
                   label: Text('Pay Now '),
